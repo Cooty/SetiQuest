@@ -1,0 +1,227 @@
+.header {
+    $logo-w: 80px;
+    $hamburger-w: 34px;
+    $donate-offset-m: $hamburger-w + $base-spacing * 2 + 10;
+    $menu-mid-bp: 870px;
+
+    position: fixed;
+    width: 100%;
+    height: $header-h;
+    z-index: $top;
+    top: 0;
+    left: 0;
+    @include prefixer(transition, all .3s ease-in-out, webkit);
+    @include prefixer(transform, translateZ(0), webkit); // trigger GPU acceleration
+
+    @include smaller-than($featherweight) {
+        height: $header-h-small;
+    }
+
+    a {
+        color: $white;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    &--scrolled {
+        height: $header-h - 10px;
+        @include prefixer(transform, translateY(-10px), webkit);
+        @include opaque-bg(bottom);
+
+        @include smaller-than($featherweight) {
+            height: $header-h-small - 5px;
+            @include prefixer(transform, translateY(-5px), webkit);
+        }
+
+    }
+
+    &__logo {
+        display: block;
+        width: $logo-w;
+        height: $logo-h;
+        top: $base-spacing;
+        left: $base-spacing;
+        @include prefixer(transition, opacity .3s ease-in-out, webkit);
+
+        @include hover-focus() {
+            opacity: .8;
+        }
+
+        > svg {
+            width: 100%;
+            fill: currentColor;
+        }
+
+        @include smaller-than($featherweight) {
+            top: $base-spacing / 2;
+            left: $base-spacing / 2;
+        }
+
+         @include smaller-than($lightweight) {
+
+            .mobile-nav-opened & {
+                z-index: $low;
+            }
+
+        }
+
+    }
+
+    &__hamburger {
+        display: none;
+
+        @include smaller-than($lightweight) {
+            display: block;
+            top: $base-spacing;
+            right: $base-spacing;
+            background: $purple;
+            color: $white;
+            border-radius: 2px;
+            border: 0;
+            padding: 0;
+            @include size($hamburger-w);
+
+            &:focus,
+            &:active {
+                outline: 0;
+                background-color: darken($purple, 4%);
+            }
+
+            @include ripple-effect();
+
+        }
+
+        @include smaller-than($featherweight) {
+            top: 13px;
+            right: $base-spacing / 2;
+        }
+
+        > span {
+                 position: absolute;
+                 display: block;
+                 height: 3px;
+                 left: 8px;
+                 right: 8px;
+                 background-color: currentColor;
+ 
+                &:nth-child(odd) {
+                    @include prefixer(transition, all .3s ease-in-out, webkit);
+                }
+
+                 &:nth-child(1) {
+                     top: 8px;
+                 }
+ 
+                 &:nth-child(2) {
+                     top: 15px;
+                 }
+ 
+                 &:nth-child(3) {
+                     bottom: 9px; // needs to animate from bottom
+                 }
+ 
+                .mobile-nav-opened & {
+
+                    &:nth-child(even) {
+                        display: none;
+                    }
+
+                    &:nth-child(1) {
+                        top: 15px;
+                        @include prefixer(transform, rotate(-45deg), webkit);
+                    }
+
+                   &:nth-child(3) {
+                      bottom: 16px;
+                       @include prefixer(transform, rotate(45deg), webkit);
+                    }
+
+                }
+
+             }
+
+    }
+
+    &__menu {
+        padding-top: $base-spacing; 
+        margin-left: $logo-w + $base-spacing * 4;
+
+        @media only screen and (max-width: $menu-mid-bp) {
+            margin-left: $logo-w + $base-spacing * 3;    
+        }
+
+        @include smaller-than($lightweight) {
+            display: none;
+        }
+
+        > a {
+            position: relative;
+            display: inline-block;
+            padding: 10px;
+            margin-right: $base-spacing;
+            text-decoration: none;
+
+            &.active {
+                background-color: $purple;
+            }
+
+            @media only screen and (max-width: $menu-mid-bp) {
+                padding: 10px 4px;
+                margin-right: 14px;
+            }
+
+            @include at-least($light-heavyweight) {
+                font-size: 1.6rem;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            @media only screen and (min-width: $lightweight) {
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    height: 1px;
+                    left: 10px;
+                    right: 10px;
+                    bottom: 3px;
+                    background: rgba($white, .5);
+                    @include prefixer(transform, scale(0), webkit ms);
+                    @include prefixer(transition, all .3s ease-in-out, webkit);
+                }
+
+                &:not(.active) {
+                    &:hover,
+                    &:focus,
+                    &:active {
+
+                        &:after {
+                            @include prefixer(transform, scale(1), webkit ms);
+                        }
+
+                    }
+                }
+
+            }
+
+        }
+
+    }
+
+    &__donate {
+        top: $base-spacing;
+        right: $base-spacing;
+
+        @include smaller-than($featherweight) {
+            top: 13px;
+            right: $base-spacing / 2;
+        }
+
+         @include smaller-than($lightweight) {
+             right: $donate-offset-m;
+         }
+
+    }
+
+}

@@ -1,0 +1,8 @@
+.header-offset {
+    padding-top: $header-h;
+
+    @include smaller-than($featherweight) {
+        padding-top: $header-h-small;
+    }
+
+}

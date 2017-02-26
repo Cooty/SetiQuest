@@ -1,0 +1,126 @@
+.hero {
+    $h: 90vh; // this ensures that content after the hero is always visible and scrolling has an affordance
+
+    min-height: $h;
+    box-sizing: border-box;
+    /*background-color: $black;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;*/
+    color: $white;
+
+    // fallback for older browsers
+    .no-cssvhunit & {
+        min-height: 620px; // average height of viewport above the fold, not foolproof but an accaptable fallback
+    }
+
+    &--no-min-h {
+        min-height: 0 !important;
+    }
+
+    /*.no-mediaqueries & {
+        background-image: url('../i/hero-1366x768.jpg');
+    }
+
+    @include at-least ($heavyweight + 1) {
+        background-image: url('../i/hero-1920x1080.jpg');
+    }
+
+    @media only screen and (min-width: $middleweight + 1) and (max-width: $heavyweight) {
+        background-image: url('../i/hero-1366x768.jpg');
+    }
+
+    @media only screen and (max-width: $middleweight) {
+        background-image: url('../i/hero-960x540.jpg');
+    }
+
+    @media only screen and (max-width: $middleweight) and (orientation: portrait) {
+        background-image: url('../i/hero-960x1280.jpg');
+    }
+
+    @media only screen and (max-width: 420px) and (orientation: portrait) {
+        background-image: url('../i/hero-412x549.jpg');
+    }*/
+
+    // adjust because of fixed footer navigation
+    @include smaller-than($lightweight) {
+        min-height: calc($h - #{$mobile-nav-h});
+    }
+
+    @media only screen and (orientation: portrait) and (max-height: 800px) {
+        min-height: calc(60vh - #{$mobile-nav-h});
+    }
+
+    &__title,
+    &__lead {
+        max-width: $hero-mw;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+
+        @media only screen and (max-width: $hero-mw) {
+            padding-left: $base-spacing;
+            padding-right: $base-spacing;
+        }
+
+    }
+
+    &__title {
+        padding-top: 40px;
+        margin-bottom: 30px;
+        margin-top: 0;
+        font-size: 2.5rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+
+        @include big() {
+            padding-top: 60px;
+            margin-bottom: 50px;
+            font-size: 3.8rem;
+            letter-spacing: 4px;
+        }
+
+        @include smaller-than($featherweight) {
+            padding-top: 40px;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        @media only screen and (max-width: 320px) and (max-width: 480px) {
+            padding-top: 25px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+
+    }
+
+    &__lead {
+        padding-bottom: 40px;
+        font-size: 1.8em;
+        line-height: 1.4; 
+        letter-spacing: 1px;
+
+        @include big() {
+            padding-bottom: 60px;
+            font-size: 2.4rem;
+            line-height: 1.6;
+            letter-spacing: 2px;
+        }
+
+        @include smaller-than($featherweight) {
+            padding-bottom: 30px;
+            font-size: 1.4rem;
+            line-height: 1.2;
+        }
+
+        @media only screen and (max-width: 320px) and (max-width: 480px) {
+            padding-bottom: 25px;
+            font-size: 1.3rem;
+            line-height: 1.1;
+        }
+
+    }
+
+
+}

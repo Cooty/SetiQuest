@@ -1,0 +1,187 @@
+// Demo animation on the bottom section of What is SETI page
+// only illustrates the look and feel of the actual star map
+// we only put manually constructed 'stars' and markers in it with some CSS3 anims
+.star-map-demo {
+  $big: 46px;
+
+  position: relative;
+  height: 400px;
+
+  &__circle {
+    position: absolute;
+    border-radius: 100%;
+    border: 2px solid $white;
+    @include size($big);
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -7px;
+      margin-left: -7px;
+      border-radius: 100%;
+      background: $white;
+      @include size(14px);
+      @include prefixer(filter, blur(5px), webkit);
+    }
+
+    &.medium {
+      @include size(30px);
+
+      &:after {
+        margin-left: -3px;
+        margin-top: -3px;
+        box-shadow: 0 0 8px rgb(255, 255, 255);
+        @include size(6px);
+        @include prefixer(filter, blur(1px), webkit);
+      }
+
+    }
+
+    &.small {
+      border-width: 1px;
+      @include size(18px);
+
+      &:after {
+        margin-left: -1px;
+        margin-top: -1px;
+        @include size(2px);
+        @include prefixer(filter, blur(1px), webkit);
+      }
+
+    }
+
+    &.red {
+
+      &:after {
+        background: #ffa53a;
+        box-shadow: 0 0 8px rgb(249, 218, 181);
+      }
+
+    }
+
+    &.blue {
+
+      &:after {
+        background: rgb(130, 250, 255);
+        box-shadow: 0 0 8px rgb(140, 235, 255);
+      }
+
+    }
+
+  }
+
+  > .star-map-demo__circle,
+  &__label {
+    opacity: 0;
+    @include prefixer(transform, translateY(6%), webkit ms);
+    @include prefixer(transition, all .3s ease-in-out, webkit);
+  }
+
+  &.show {
+
+    > .star-map-demo__circle,
+    .star-map-demo__label {
+      opacity: 1;
+      @include prefixer(transform, translateY(0), webkit ms);
+    }
+
+  }
+
+  .first {
+    top: 0;
+    left: 80px;
+  }
+
+  .second {
+    top: 80px;
+    left: 120px;
+
+    .star-map-demo__circle {
+
+      &:after {
+        margin-top: -2px;
+        margin-left: -2px;
+        @include size(4px);
+        @include prefixer(filter, blur(1px), webkit);
+      }
+
+    }
+
+    .star-map-demo__label {
+      @include prefixer(transition-delay, .2s, webkit);
+    }
+
+  }
+
+  .third {
+    top: 94px;
+    left: 48px;
+    @include prefixer(transition-delay, .4s, webkit);
+  }
+
+  .fourth {
+    bottom: 20px;
+    right: 40px;
+    @include prefixer(transition-delay, .6s, webkit);
+  }
+
+  .fifth {
+    bottom: 170px;
+    right: 111px;
+    @include prefixer(transition-delay, .8s, webkit);
+  }
+
+  .sixth {
+    right: 240px;
+    bottom: 160px;
+    @include prefixer(transition-delay, 1s, webkit);
+  }
+
+  .seventh {
+    left: 140px;
+    bottom: 90px;
+    @include prefixer(transition-delay, 1.2s, webkit);
+  }
+
+  .eight {
+    left: 0;
+    bottom: 10px;
+    @include prefixer(transition-delay, 1.4s, webkit);
+  }
+
+  .ninth {
+    left: 36px;
+    bottom: 50px;
+    @include prefixer(transition-delay, 1.6s, webkit);
+  }
+
+  .tenth {
+    left: 60px;
+    bottom: 0;
+    @include prefixer(transition-delay, 1.8s, webkit);
+  }
+
+  &__observed {
+    position: absolute;
+
+    .star-map-demo__circle {
+      top: 0;
+      left: 0;
+    }
+
+  }
+
+  &__label {
+    max-width: 140px;
+    margin: 5px 0 0 $big + 8px;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    color: $white;
+    background: rgba(0, 0, 0, .6);
+    line-height: 1.4;
+  }
+
+}

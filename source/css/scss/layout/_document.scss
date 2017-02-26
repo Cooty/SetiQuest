@@ -1,0 +1,66 @@
+html,
+body {
+    position: relative;
+    @include size(100%);
+}
+
+// * 3. Prevent adjustments of font size after orientation changes in
+html {
+    font: normal #{62.5%}/#{1} 'Raleway', Roboto, Helvetica, Arial, sans-serif;
+    background: $black;
+    text-rendering: optimizeLegibility;
+    -ms-text-size-adjust: 100%; /* 3 */
+    -webkit-text-size-adjust: 100%; /* 3 */
+
+    &.home,
+    &.home > body {
+        overflow: hidden;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+    }
+
+    &.mobile-nav-opened {
+        @include smaller-than($lightweight) {
+            overflow: hidden;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
+    }
+
+}
+
+.page {
+    position: relative;
+    z-index: 20;
+}
+
+body {
+    font-size: 1.4rem;
+
+    .no-cssremunit & {
+        font-size: 14px;
+    }
+
+    .home & {
+        color: $white;
+    }
+
+}
+
+.home {
+
+    .page {
+        height: 100%;
+    }
+
+}
+
+a {
+    -webkit-tap-highlight-color: rgba(lighten($purple, 3%), .3);
+}

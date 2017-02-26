@@ -1,0 +1,63 @@
+.data {
+  display: table;
+  margin-left: -$base-spacing;
+
+  &__cell {
+    display: table-cell;
+    position: relative;
+    padding: 0 $base-spacing;
+    vertical-align: middle;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 6px;
+      bottom: 6px;
+      right: 0;
+      width: 1px;
+      background: $pinkish-grey;
+    }
+
+    &--short {
+      width: 260px;
+    }
+
+    > .figure {
+      margin-right: 50px;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+    }
+
+  }
+
+}
+
+.figure {
+  display: inline-block;
+
+  &__label {
+    display: inline-block;
+    font-size: 12px;
+    color: $label-grey;
+    margin-bottom: 8px;
+    cursor: help;
+
+    .icon {
+      margin-left: 3px;
+      position: relative;
+      display: inline-block;
+      @include size(10px);
+    }
+
+  }
+
+  &__data {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+}

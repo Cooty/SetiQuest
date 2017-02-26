@@ -1,0 +1,64 @@
+.blk {
+    position: relative;
+    box-sizing: border-box;
+    display: block;
+}
+
+.blki {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.dnone {
+    display: none;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clearfix {
+    @include clearfix();
+}
+
+.clearboth {
+    clear: both;
+}
+
+.abs {
+    position: absolute;
+
+    &--full {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+}
+
+.w-full {
+    width: 100%;
+}
+
+.h-full {
+    height: 100%;
+}
+
+@each $name, $value in $z-indexes {
+    .z-#{$name} {
+        z-index: $value;
+    }
+}
+
+.visuallyhidden {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px; width: 1px;
+    margin: -1px; padding: 0; border: 0;
+}

@@ -1,0 +1,26 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+    if (!window.jQuery) {
+        document.write('<script src="/js/lib/jquery.3.1.0.min.js"><\/script>');
+    }
+</script>
+<% if(isHome) { %>
+    <!-- Only load these 2 files if we are on the homepage -->
+    <script src="/js/plugin.home.min.js"></script>
+    <script src="/js/app.home.min.js"></script>
+<% } %>
+<% if(spaceBg) { %>
+    <script src="/js/space.min.js"></script>
+<% } %>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/app.min.js"></script>
+<script>
+    SETI.Main.getInstance();
+
+    <% if(isHome) { %>
+        SETI.Home.getInstance();
+    <% } %>
+    <% if(spaceBg) { %>
+        SETI.Space.init();
+    <% } %>
+</script>

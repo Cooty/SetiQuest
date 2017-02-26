@@ -1,0 +1,113 @@
+.mobile-nav-cover {
+    display: none;
+}
+
+@include smaller-than($lightweight) {
+
+    .mobile-nav-opened {
+
+        .mobile-nav-cover {
+            display: block;
+            position: fixed;
+            z-index: $middle;
+            background: rgba(0, 0, 0, .5);
+        }
+
+        .page {
+            @include prefixer(filter, blur(6px), webkit);
+        }
+        
+    }
+
+}
+
+.mobile-nav {
+    display: none;
+
+    &__scroller {
+        position: absolute;
+        top: 100px;
+        right: 0;
+        bottom: 38px;
+        left: 0;
+        overflow: auto;
+    }
+
+
+    @include smaller-than($lightweight) {
+        display: block;
+        background: $black; // just to be on the safe-side, this style is vital for legability
+        background: rgba(0, 0, 0, .8);
+        position: fixed;
+        z-index: $high;
+        width: $menu-mobile-w;
+        margin-left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        @include prefixer(transform, translate3d($menu-mobile-w, 0, 0), webkit ms);
+        @include prefixer(transition, all .2s $ease-out-quad, webkit);
+
+        .mobile-nav-opened & {
+            @include prefixer(transform, translate3d(0, 0, 0), webkit ms);        
+        }
+
+        .no-csstransforms3d & {
+            right: -$menu-mobile-w;
+        }
+
+        .mobile-nav-opened.no-csstransforms3d & {
+            right: 0;    
+        }
+
+        a {
+            $h: 50px;
+            $border-c: rgba(255, 255, 255, .1);
+
+            position: relative;
+            display: block;
+            height: $h;
+            margin: 0;
+            border-top: 1px solid $border-c;
+            line-height: $h;
+            padding: 0 0 0 $base-spacing;
+            color: $white;
+            text-decoration: none;
+            -webkit-tap-highlight-color: $border-c;
+
+            &:active,
+            &:focus {
+                background-color: $border-c;
+            }
+
+            &.active {
+                font-weight: 700;
+                color: $purple;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    width: 3px;
+                    background-color: $purple;
+                }
+
+            }
+
+        }
+
+    }
+
+    // 320px (+1 needed to hack the mixin else it would be compiled to 319)
+    @include smaller-than($menu-mobile-w + 1) {
+        width: $menu-mobile-w - $base-spacing * 2;
+
+        a {
+            padding-left: $base-spacing / 2; // align with logo
+        }
+
+    }
+
+}

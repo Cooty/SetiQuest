@@ -1,0 +1,275 @@
+.timeline {
+    $point-size: 27px;
+    $point-size-mid: 21px;
+    $point-size-small: 17px;
+
+    $w: 1200px;
+    $gutter: 70px;
+    $gutter-mid: 40px;
+    $gutter-small: 20px;
+
+    position: relative;
+    max-width: $w;
+    margin: 0 auto;
+    padding-bottom: 40px;
+    @include clearfix();
+
+    .hero & {
+        padding-bottom: $gutter * 2;
+
+        @media only screen and (max-width: $light-heavyweight) {
+            padding-bottom: $gutter-mid * 2;
+        }
+
+        @media only screen and (max-width: $lightweight) {
+            padding-bottom: $gutter-small * 2;
+        }
+
+        @media only screen and (max-width: $featherweight) {
+            padding-bottom: 50px; 
+        }
+    }
+
+    @media only screen and(max-width: $w + $base-spacing * 2) {
+        padding-left: $base-spacing;
+        padding-right: $base-spacing;
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        z-index: 1;
+        width: 1px;
+        background-color: $purple;
+        pointer-events: none;
+    }
+
+    &--top {
+        padding-top: 60px;
+
+        @include big() {
+            padding-top: 80px;
+        }
+
+        > .timeline__point {
+            top: 0;
+            left: 50%;
+            margin-left: (($point-size + 2 - 1) / 2) * -1;
+
+            @media only screen and (max-width: $light-heavyweight) {
+                margin-left: (($point-size-mid + 2 - 1) / 2) * -1;    
+            }
+
+            @media only screen and (max-width: $lightweight) {
+                margin-left: (($point-size-small + 2 - 1) / 2) * -1;    
+            }
+
+            &:first-of-type {
+
+                &:after {
+                    box-shadow: 0 0 8px rgb(255, 255, 255);
+                    @include prefixer(filter, blur(1px), webkit ms);
+                }
+
+            }
+
+        }
+
+        &:before {
+            top: 0;
+
+            .hero & {
+                top: $point-size;
+
+                @media only screen and (max-width: $light-heavyweight) {
+                    top: $point-size-mid + 2; // borders of the 'point'   
+                }
+
+                @media only screen and (max-width: $lightweight) {
+                    top: $point-size-small + 2;    
+                }
+            }
+
+        }
+
+
+    }
+
+    &__half {
+        position: relative;
+        float: right;
+        width: 50%;
+        z-index: 2;
+        box-sizing: border-box;
+
+        @media only screen and (max-width: $featherweight) {
+            width: 100%;
+            float: none;
+            padding: 0;
+            margin-bottom: $gutter-mid;
+
+            .timeline__point {
+                display: none;
+            }
+
+        }
+
+        &--image {
+
+            img {
+                position: relative;
+                z-index: 2;
+                display: block;
+                max-width: 100%;
+                border: 1px solid $purple;
+            }
+
+            @media only screen and (max-width: $featherweight) {
+                max-width: 480px;
+                margin: 0 auto;
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                width: $gutter;
+                height: 1px;
+                right: $point-size / 2 + 1;
+                top: 50%;
+                z-index: 1;
+                background-color: $purple;
+
+                @media only screen and (max-width: $light-heavyweight) {
+                    width: $gutter-mid;
+                    right: $point-size-mid / 2 + 1;
+                }
+
+                @media only screen and (max-width: $lightweight) {
+                    width: $gutter-small;
+                    right: $point-size-small / 2 + 1;
+                }
+
+                @media only screen and (max-width: $featherweight) {
+                    display: none;
+                }
+
+            }
+
+            .timeline__point {
+                top: 50%;
+                right: (($point-size + 2 - 1) / 2 + 1) * -1;
+                margin-top: (($point-size + 2 - 1) / 2  + 1) * -1;
+                z-index: 2;
+
+                @media only screen and (max-width: $light-heavyweight) {
+                    right: (($point-size-mid + 2 - 1) / 2 + 1) * -1;
+                    margin-top: (($point-size-mid + 2 - 1) / 2  + 1) * -1;   
+                }
+
+                @media only screen and (max-width: $lightweight) {
+                    right: (($point-size-small + 2 - 1) / 2 + 1) * -1;
+                    margin-top: (($point-size-small + 2 - 1) / 2  + 1) * -1;   
+                }
+
+            }
+
+        }
+
+        &--bleed-bg-mobile {
+            @media only screen and (max-width: $featherweight) {
+                padding: 15px $base-spacing !important;
+                margin-left: -#{$base-spacing};
+                background-color: rgba(0, 0, 0, .7);
+                box-sizing: content-box;    
+            }
+        }
+
+        &--text {
+
+            .section & {
+                @media only screen and (max-width: $featherweight) {
+                    padding: 15px !important;
+                    background-color: $white;
+                    border: 1px solid $purple; 
+                }    
+            }
+
+        }
+
+    }
+    
+    > .timeline__half {
+
+        &:first-of-type {
+            padding-left: $gutter;
+
+            @media only screen and (max-width: $light-heavyweight) {
+                padding-left: $gutter-mid;
+            }
+
+            @media only screen and (max-width: $lightweight) {
+                padding-left: $gutter-small;
+            }
+
+            @media only screen and (max-width: $featherweight) {
+                padding-left: 0;
+            }
+
+        }
+
+        &:last-of-type {
+            padding-right: $gutter;
+
+            @media only screen and (max-width: $light-heavyweight) {
+                padding-right: $gutter-mid;
+            }
+
+            @media only screen and (max-width: $lightweight) {
+                padding-right: $gutter-small;
+            }
+
+            @media only screen and (max-width: $featherweight) {
+                padding-right: 0;
+            }
+
+        }
+        
+    }
+
+    &__point {
+        display: block;
+        position: absolute;
+        border: 1px solid $purple;
+        border-radius: 100%;
+        pointer-events: none;
+        @include size($point-size);
+
+        @media only screen and (max-width: $light-heavyweight) {
+            @include size($point-size-mid);    
+        }
+
+        @media only screen and (max-width: $lightweight) {
+            @include size($point-size-small);    
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 30%;
+            bottom: 30%;
+            left: 30%;
+            right: 30%;
+            background: $white;
+            border-radius: 100%;
+
+            .section & {
+                background: $purple;
+            }
+
+        }
+
+    }
+}

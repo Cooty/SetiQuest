@@ -1,0 +1,29 @@
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="UTF-8">
+    
+    <title><%= title %></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="TODO: A maximum of 160 characters of text should go here, based on the contents of the current page">
+    <meta name="keywords" content="SETI, space, exoplanets, E.T., UFO, astronomy, Allen Telescope Array">
+
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="TODO: Add absolute phat to at least 1024x1024px large image to show when linking on Facebook">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="TODO: Add title here to show when shared on Twitter">
+    <meta name="twitter:description" content="TODO: Add maximum 140 character long description here to show when shared on Twitter">
+    <meta name="twitter:domain" content="http://setiquest.info/">
+
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,500,700" rel="stylesheet" media="screen">
+    <link href="css/app.css" rel="stylesheet" media="all">
+    <!-- Only needed on the homepage -->
+    <% if(pageName === 'home') { %>
+    <link href="css/aladin.css" rel="stylesheet" media="all">
+    <% } %>
+
+    <%- include('head-scripts') -%>
+
+</head>

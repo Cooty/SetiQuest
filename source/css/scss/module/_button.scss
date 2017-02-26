@@ -1,0 +1,74 @@
+.button {
+    position: relative;
+    padding: 10px 20px;
+    border: 0;
+    background: $purple;
+    color: $white;
+    border-radius: 2px;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    @include prefixer(transition, background-color .3s $ease-out-quad, webkit);
+
+    &:focus {
+        outline: 0;
+    }
+
+    @include ripple-effect();
+
+    @include hover-focus() {
+        background-color: darken($purple, 3%);
+        box-shadow: 0 0 8px lighten($purple, 3%); 
+    }
+
+    @include big() {
+        padding: 14px 24px;    
+    } 
+
+    &--cta {
+        padding: 20px 30px;
+        font-size: 1.6rem;
+        border-radius: 4px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background: transparent !important;
+        border: 2px solid $white;
+
+        .no-cssremunit & {
+            font-size: 16px;
+        }
+
+        @include big() {
+            padding: 24px 34px;    
+        } 
+
+    }
+
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+  }
+  20% {
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes ripple {
+  0% {
+    transform: scale(0);
+  }
+  20% {
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}

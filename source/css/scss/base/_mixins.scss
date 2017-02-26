@@ -1,0 +1,82 @@
+@mixin smaller-than($bp) {
+  
+  @media only screen and (max-width: $bp - 1) {
+    @content 
+  }
+
+}
+
+@mixin at-least($bp) {
+
+  @media only screen and (min-width: $bp) {
+    @content 
+  }
+
+}
+
+@mixin big() {
+
+  @media only screen and (min-height: $lightweight) and (min-width: $heavyweight) {
+    @content
+  }
+
+}
+
+@mixin hover-focus() {
+
+  &:hover,
+  &:focus {
+    @content
+  }
+
+}
+
+@mixin ripple-effect() {
+
+  // Material Design ripple effect: https://ghinda.net/article/css-ripple-material-design/
+    .cssanimations & {
+        overflow: hidden;
+
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 300px;
+            height: 300px;
+            margin-left: -150px;
+            margin-top: -150px;
+            background-color: rgba($white, .4);
+            border-radius: 100%;
+            visibility: hidden; // fixes initial animation run, without user input, on page load.
+            @include prefixer(transform, scale(0), webkit ms);
+        }
+
+        &:not(:active):after {
+            @include prefixer(animation, ripple 1.6s $ease-out-quad, webkit);
+        }
+
+        &:focus:after {
+            visibility: visible;
+        }
+
+
+    }
+
+}
+
+@mixin opaque-bg($border) {
+  $border-color: rgba(255, 255, 255, 0.1);
+
+  background: #000;
+  background: rgba(0, 0, 0, .9);
+  @if ($border == 'bottom') {
+    border-bottom: 1px solid $border-color;
+  }
+  @elseif($border == 'top') {
+    border-top: 1px solid $border-color;
+  }
+
+  @include prefixer(backdrop-filter, blur(6px), webkit);
+}

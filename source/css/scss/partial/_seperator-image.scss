@@ -1,0 +1,38 @@
+.seperator-image {
+    border: 1px solid $purple;
+    border-width: 1px 0;
+    background-color: #DAD1F8;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+
+    .no-mediaqueries & {
+        height: 399px;
+        background-image: url('../i/purple-telescopes-1366x399.jpg');
+    }
+
+    // > min-width 1366px
+    @include at-least($heavyweight + 1) {
+        height: 561px;
+        background-image: url('../i/purple-telescopes-1920x561.jpg');    
+    }
+
+    // 1365px - 960px
+    @media only screen and (max-width: $heavyweight) and (min-width: $middleweight + 1) {
+        height: 399px;
+        background-image: url('../i/purple-telescopes-1366x399.jpg'); 
+    }
+
+    // 959px - 600px
+    @media only screen and (max-width: $middleweight) and (min-width: 541px) {
+        height: 280px;
+        background-image: url('../i/purple-telescopes-960x280.jpg');
+    }
+
+    // < 540px
+    @include smaller-than(541px) {
+        height: 158px;
+        background-image: url('../i/purple-telescopes-540x158.jpg');
+    }
+
+}

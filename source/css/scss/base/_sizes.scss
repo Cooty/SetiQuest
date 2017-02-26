@@ -1,0 +1,22 @@
+// Breakpoints
+$flyweight: 360px;
+$bantamweight: 480px;
+$featherweight: 600px;
+$lightweight: 768px;
+$weltherweight: 800px;
+$middleweight: 960px;
+$light-heavyweight: 1024px;
+$heavyweight: 1366px;
+
+$shorty: 720px;
+
+// Spacings
+$base-spacing: 20px;
+$menu-mobile-w: 320px;
+
+// Elements
+$logo-h: 40px;
+$header-h: $logo-h + $base-spacing * 2;
+$header-h-small: $logo-h + $base-spacing / 2 * 2;
+$mobile-nav-h: 40px;
+$hero-mw: 890px;

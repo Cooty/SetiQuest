@@ -1,0 +1,53 @@
+.dish {
+  z-index: $low;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -198px;
+  background: url(../i/dish-wireframe@2x.png) no-repeat center top;
+  background-size: cover;
+  max-width: 100%;
+  text-align: center;
+  @include size(397px, 195px);
+
+  @media only screen and (max-width: 397px) {
+    left: 0;
+    margin-left: 0;
+  }
+
+  &__label {
+    left: 0;
+    right: 0;
+    top: 57px;
+    opacity: 0;
+    @include prefixer(transform, translateY($base-spacing), webkit ms);
+    @include prefixer(transition, all .25s ease .2s, webkit);
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    border-radius: 100%;
+    background: $purple;
+    left: 50%;
+    margin-left: -110px;
+    bottom: -110px;
+    box-shadow: 0 0 30px $purple;
+    @include prefixer(filter, blur(40px), webkit);
+    @include size(220px);
+  }
+
+  &--hide-overflow {
+    overflow: hidden;
+  }
+
+}
+
+.bullet {
+  border-radius: 3px;
+  background: #19091e;
+  padding: 7px 17px;
+  line-height: 1;
+  font-size: 14px;
+  color: #bbb;
+}

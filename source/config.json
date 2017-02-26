@@ -1,0 +1,28 @@
+{
+    "tasks": [
+        "grunt-contrib-concat",
+        "grunt-contrib-copy",
+        "grunt-contrib-watch",
+        "grunt-contrib-uglify",
+        "grunt-sass",
+        "grunt-extend-config",
+        "grunt-concurrent",
+        "grunt-execute"
+    ],
+    "buildTasks": [
+        "copy-files",
+        "js-compile:build",
+        "scss-compile:build"
+    ],
+    "devTasks": [
+        "parallel"
+    ],
+    "directories": {
+		"build": "../dist/",
+		"tasks": "tasks/",
+        "scssSource": "css/scss/"
+	},
+    "files": {
+        "server": "server.js"
+    }
+}

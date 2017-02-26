@@ -1,0 +1,27 @@
+.space {
+    position: fixed;
+    z-index: $low;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgb(3,9,18);
+    background: -moz-linear-gradient(left,  rgba(3,9,18,1) 0%, rgba(18,20,28,1) 35%, rgba(3,1,5,1) 100%);
+    background: -webkit-linear-gradient(left,  rgba(3,9,18,1) 0%,rgba(18,20,28,1) 35%,rgba(3,1,5,1) 100%);
+    background: linear-gradient(to right,  rgba(3,9,18,1) 0%,rgba(18,20,28,1) 35%,rgba(3,1,5,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#030912', endColorstr='#030105',GradientType=1 );
+
+    &__canvas {
+        z-index: 1;
+    }
+
+    &__noise {
+        z-index: 2;
+        background: url(../i/noise.png) repeat 0 0;
+    }
+
+    .hide-hero & {
+        display: none;
+    }
+
+}

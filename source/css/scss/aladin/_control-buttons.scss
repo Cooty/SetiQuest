@@ -1,0 +1,63 @@
+.control-btn {
+  background: transparent;
+  border: none;
+  margin-bottom: $base-spacing;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 100%;
+  color: $white;
+  @include size(35px);
+  @include prefixer(transition, box-shadow .3s ease-in-out, webkit);
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  &:focus,
+  &:hover {
+    &:not([disabled]) {
+      outline: none;
+      box-shadow: 0 0 10px rgba($white, 1);
+    }
+  }
+
+  &[disabled] {
+    color: rgba(255, 255, 255, .2);
+    cursor: not-allowed;
+  }
+
+  // exception to make the crosshair optically the same size as the others
+  &--crosshair {
+
+    .icon {
+      > svg {
+        top: -5px;
+        left: -5px;
+        @include size(45px);
+      }
+    }
+
+  }
+
+  &--fullscreen {
+
+    .arrow-top,
+    .arrow-bottom {
+      @include prefixer(transform-origin, 50% 50%, webkit ms);
+    }
+
+    &.reverse-arrows {
+
+      .arrow-top {
+        @include prefixer(transform, rotate(180deg), webkit ms);
+      }
+
+      .arrow-bottom {
+        @include prefixer(transform, rotate(-180deg), webkit ms);
+      }
+
+    }
+
+  }
+
+}

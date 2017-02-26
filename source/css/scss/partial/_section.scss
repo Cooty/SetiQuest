@@ -1,0 +1,50 @@
+.section {
+    background-color: $white;
+
+    &__title {
+        font-size: 2rem;
+        line-height: 1.2;
+        letter-spacing: 2px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: $purple;
+        margin: 0 0 .6em 0;
+
+        @media only screen and (min-width: $heavyweight + 1) {
+            font-size: 2.2rem;
+        }
+
+        @media only screen and (max-width: $weltherweight) {
+            font-size: 1.8rem;
+        }
+
+    }
+
+    &--no-bg {
+        background: none;
+
+        .section__title,
+        .copy {
+            color: $white;
+        }
+
+    }
+
+    &--last {
+
+        .timeline__half--text {
+
+            @media only screen and (max-width: $featherweight) {
+                background: rgba(0, 0, 0, .7);
+            }
+
+
+        }
+
+        .timeline {
+            padding-bottom: 200px;
+        }
+
+    }
+
+}

@@ -1,0 +1,28 @@
+$indent: 16px;
+
+.status-header {
+  position: relative;
+  font-size: 20px;
+  padding: 0 0 0 $indent;
+  margin: 0 0 7px 0;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 3px;
+    border: 1px solid $red;
+    border-radius: 100%;
+    @include size(8px);
+
+    .status-live & {
+      background: $red;
+    }
+
+  }
+
+}
+
+.status-desc {
+  padding-left: $indent;
+}

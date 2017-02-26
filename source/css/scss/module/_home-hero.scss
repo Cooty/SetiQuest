@@ -1,0 +1,156 @@
+.home-hero {
+    z-index: $middle;
+    background: #000 url('../i/seti-bg-video-cover-1280x720.jpg') no-repeat center top;
+    background-size: cover;
+
+    &--video-playing {
+        background: transparent;
+    }
+
+    &__content {
+        max-width: $hero-mw;
+
+        @media only screen and (max-width: $hero-mw + $base-spacing * 2) {
+            padding: 0 $base-spacing;
+        }
+
+    }
+
+    &__title {
+        margin: 0 0 60px 0;
+        font-size: 3.5em;
+        font-weight: 700;
+        letter-spacing: 3px;
+        @include prefixer(animation, showUp .6s $ease-out-quad, webkit);
+
+        .cssanimations.hide-hero & {
+            @include prefixer(animation, hideUp .6s $ease-out-quad forwards, webkit);    
+        }
+
+    }
+
+    &__lead,
+    .button--cta {
+
+        .cssanimations & {
+            opacity: 0;
+        }
+        
+    }
+
+    &__lead {
+        margin-bottom: 46px;
+        font-size: 2em;
+        line-height: 1.6; 
+        letter-spacing: 2px;
+
+        .cssanimations & {
+            @include prefixer(animation, showUp .6s $ease-out-quad .2s forwards, webkit);
+        }
+
+        .cssanimations.hide-hero & {
+            @include prefixer(animation, hideUp .6s $ease-out-quad .2s forwards, webkit);    
+        }
+
+    }
+
+    .button--cta {
+
+        .cssanimations & {
+            @include prefixer(animation, showUp .6s $ease-out-quad .4s forwards, webkit);
+        }
+
+        .cssanimations.hide-hero & {
+            @include prefixer(animation, hideUp .6s $ease-out-quad .4s forwards, webkit);    
+        }
+
+    }
+
+    @media only screen and (max-height: $shorty - 1) and (max-width: $light-heavyweight - 1) {
+
+        &__title,
+        &__lead {
+            letter-spacing: 1px;
+        }
+
+        &__title {
+            margin-bottom: 30px;
+            font-size: 2.4em;
+        }
+
+        &__lead {
+            margin-bottom: 24px;
+            font-size: 1.2em;
+            line-height: 1.2;
+        }
+
+        .button--cta {
+            padding: 18px 26px;
+            font-size: 1.4rem;
+        }
+
+    }
+
+    @include big() {
+        &__title {
+            font-size: 5em;
+        }
+
+        &__lead {
+            font-size: 2.8em;
+        }
+    }
+
+}
+
+@-webkit-keyframes showUp {
+    0% {
+        transform: translateY(80px) scale(.9);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+
+}
+
+@keyframes showUp {
+    0% {
+        transform: translateY(80px) scale(.9);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+
+}
+
+@-webkit-keyframes hideUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-80px) scale(.9);
+        opacity: 0;
+    }
+
+}
+
+@keyframes hideUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-80px) scale(.9);
+        opacity: 0;
+    }
+
+}

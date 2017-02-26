@@ -1,0 +1,14 @@
+<header class="header" id="js-header" <% if(pageName !== 'home') { %>data-sticky="1"<% } %>>
+    <a href="/" class="header__logo abs" id="js-logo">
+        <%- include('logo') -%>
+    </a>
+    <nav class="header__menu">
+        <%- include('navlinks') -%>
+    </nav>
+    <a href="donate" class="header__donate button abs">Donate Now</a>
+    <button type="button" class="header__hamburger abs" id="js-hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</header>

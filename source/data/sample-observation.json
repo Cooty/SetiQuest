@@ -1,0 +1,41 @@
+{
+  "type": "pnt",
+  "status": "end",
+  "t": "1480475994",
+  "act": "82694",
+  "p_deg": "0.596581",
+  "b_deg": "0.016477",
+  "beams": [{
+    "beam": "1",
+    "targetId": "413460",
+    "ra": "23.7900027",
+    "dec": "-0.9582681",
+    "aliases": "SDSS-DR7-12578",
+    "distly": "275.0",
+    "catalog": "closest20k"
+  }, {
+    "beam": "2",
+    "targetId": "428480",
+    "ra": "23.7871853",
+    "dec": "-0.9605314",
+    "aliases": "SDSS-DR7-12574",
+    "distly": "678.7",
+    "catalog": "closest20k"
+  }, {
+    "beam": "3",
+    "targetId": "415645",
+    "ra": "23.7937087",
+    "dec": "-0.9698013",
+    "aliases": "SDSS-DR7-11314",
+    "distly": "356.0",
+    "catalog": "closest20k"
+  }, {
+    "beam": "0",
+    "targetId": "415645",
+    "ra": "23.7937087",
+    "dec": "-0.9698013",
+    "aliases": "SDSS-DR7-11314",
+    "distly": "356.0",
+    "catalog": "closest20k"
+  }]
+}
