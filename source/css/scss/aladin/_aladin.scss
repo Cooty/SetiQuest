@@ -6,11 +6,6 @@
     $bottom-nav-h: 94px;
     overflow: hidden;
 
-    &:-webkit-full-screen {
-        width: 100%;
-        height: 100%;
-    }
-
     z-index: $low;
     opacity: 0;
     transition: opacity .3s ease;

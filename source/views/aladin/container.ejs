@@ -12,7 +12,7 @@
 
     <nav class="aladin__controls abs vp-middle z-low">
         <div class="vp-middle__content">
-            <button class="control-btn blk" type="button" title="Zoom In" data-zoom-in>
+            <button class="control-btn blk" type="button" title="Zoom In" data-zoom-in data-tooltip data-side="right">
                 <i class="icon">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
@@ -24,7 +24,7 @@
                 </i>
                 <span class="visuallyhidden">Zoom in</span>
             </button>
-            <button class="control-btn blk" type="button" title="Zoom Out" data-zoom-out>
+            <button class="control-btn blk" type="button" title="Zoom Out" data-zoom-out data-tooltip data-side="right">
                 <i class="icon">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                          viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
@@ -35,7 +35,7 @@
                 </i>
                 <span class="visuallyhidden">Zoom Out</span>
             </button>
-            <button class="control-btn blk" type="button" title="Toggle Constellations" data-constellations>
+            <button class="control-btn blk" type="button" title="Toggle Constellations" data-constellations data-tooltip data-side="right">
                 <i class="icon">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
@@ -51,7 +51,7 @@
                 </i>
                 <span class="visuallyhidden">Constellations</span>
             </button>
-            <button class="control-btn control-btn--crosshair blk" type="button" title="Go to actual observation" data-set-center>
+            <button class="control-btn control-btn--crosshair blk" type="button" title="Go to current observation" data-set-center data-tooltip data-side="right">
                 <i class="icon">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                          viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
@@ -62,7 +62,7 @@
                 </i>
                 <span class="visuallyhidden">Back to center</span>
             </button>
-            <button class="control-btn control-btn--fullscreen blk" type="button" title="Switch to fullscreen view" data-fullscreen>
+            <button class="control-btn control-btn--fullscreen blk" type="button" title="Switch to fullscreen mode" data-fullscreen data-tooltip data-side="right">
                 <i class="icon">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                          viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
@@ -89,10 +89,10 @@
             </div>
             <div class="data__cell">
                 <span class="figure">
-                    <span class="figure__label">
+                    <span class="figure__label" data-tooltip title="Current observation session ID number">
                         Session
                         <i class="icon">
-                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
 <path d="M16,32C7.2,32,0,24.8,0,16S7.2,0,16,0s16,7.2,16,16S24.8,32,16,32z M16,1.7C8.1,1.7,1.7,8.1,1.7,16S8.1,30.3,16,30.3
 	S30.3,23.9,30.3,16S23.9,1.7,16,1.7z"/>
@@ -106,10 +106,10 @@
             </div>
             <div class="data__cell">
                 <span class="figure">
-                    <span class="figure__label">
+                    <span class="figure__label" data-tooltip title="Some title goes here">
                         Location on sky
                         <i class="icon">
-                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
 <path d="M16,32C7.2,32,0,24.8,0,16S7.2,0,16,0s16,7.2,16,16S24.8,32,16,32z M16,1.7C8.1,1.7,1.7,8.1,1.7,16S8.1,30.3,16,30.3
 	S30.3,23.9,30.3,16S23.9,1.7,16,1.7z"/>
@@ -120,10 +120,10 @@
                     </span>
                     <span class="figure__data">Pisces</span>
                 </span><span class="figure">
-                    <span class="figure__label">
+                    <span class="figure__label" data-tooltip title="Some title goes here">
                         Bandwidth
                         <i class="icon">
-                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
 <path d="M16,32C7.2,32,0,24.8,0,16S7.2,0,16,0s16,7.2,16,16S24.8,32,16,32z M16,1.7C8.1,1.7,1.7,8.1,1.7,16S8.1,30.3,16,30.3
 	S30.3,23.9,30.3,16S23.9,1.7,16,1.7z"/>
@@ -134,7 +134,7 @@
                     </span>
                     <span class="figure__data">41.780</span>
                 </span><span class="figure">
-                    <span class="figure__label">
+                    <span class="figure__label" data-tooltip title="Some title goes here">
                         Tuning
                         <i class="icon">
                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -148,7 +148,7 @@
                     </span>
                     <span class="figure__data">1452.53 mhz</span>
                 </span><span class="figure">
-                    <span class="figure__label">
+                    <span class="figure__label" data-tooltip title="Some title goes here">
                         Objective
                         <i class="icon">
                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

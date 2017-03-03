@@ -1,8 +1,4 @@
 /**
- *
- */
-
-/**
  * Operates background video on the homepage, if it's a mobile devicde or the browser doen't support HTML5 video
  * It fallf back to a background image
  *
@@ -29,8 +25,6 @@ SETI.BackgroundVideo = (/** @lends SETI.BackgroundVideo */function() {
      */
     function init() {
         hasSeenHero = window.getCookie('clickedHero');
-
-        console.log(hasSeenHero);
 
         if(!SETI.mobile && hasSeenHero !== '1') {
             initDOMElements();

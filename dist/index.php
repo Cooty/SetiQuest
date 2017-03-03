@@ -1,14 +1,14 @@
-
 <!doctype html>
 
-<html dir="ltr" lang="en-US" class="no-js">
+<!-- TODO: Only add the 'hide-hero' class if the user has seen the Aladin canvas -->
+<html dir="ltr" lang="en-US" class="no-js home <?= isset($_COOKIE['clickedHero']) ? 'hide-hero' : '' ?>">
 
 
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta charset="UTF-8">
 
-    <title>What is S.E.T.I.? | S.E.T.I.</title>
+    <title>Home | S.E.T.I.</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -26,6 +26,8 @@
     <link href="//fonts.googleapis.com/css?family=Raleway:400,500,700" rel="stylesheet" media="screen">
     <link href="css/app.css" rel="stylesheet" media="all">
     <!-- Only needed on the homepage -->
+
+    <link href="css/aladin.css" rel="stylesheet" media="all">
 
 
     <script>
@@ -91,49 +93,49 @@
     </script>
 </head>
 
-<body>
+<body class="observation" data-home data-video-source="media/seti_bg_cover">
 
-<header class="header" id="js-header" data-sticky="1">
+<header class="header" id="js-header" >
     <a href="/seti/" class="header__logo abs" id="js-logo">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 78.6 37" xml:space="preserve">
+             viewBox="0 0 78.6 37" xml:space="preserve">
 		<path d="M6.5,31l-1.9,0.4c-0.1-0.7-0.7-1.1-1.3-1.1s-1,0.3-1,0.8c0,0.3,0.1,0.5,0.6,0.6l1.6,0.4
 			c1.3,0.3,2.1,1,2.1,2.2c0,1.6-1.5,2.5-3.2,2.5S0.2,36,0,34.5l2-0.4c0.2,0.8,0.8,1.1,1.5,1.1s1.1-0.3,1.1-0.8
 			c0-0.3-0.2-0.6-0.7-0.7l-1.6-0.2c-1.1-0.3-2.1-0.8-2.1-2.2c0-1.5,1.2-2.4,3.1-2.4C5,28.8,6.2,29.6,6.5,31z"/>
-		<path d="M14.6,36.7h-6V29h6v1.6h-4.1v1.5h3.7v1.5h-3.7v1.5h4.1V36.7z"/>
-		<path d="M20.7,30.6v6.1h-1.9v-6.1h-2.5v-1.7h6.9v1.7H20.7z"/>
-		<path d="M25,36.7V29h1.9v7.7H25z"/>
-		<path d="M37.9,32.8c0,2.2-1.8,4-4,4s-4-1.8-4-4s1.8-4,4-4C36.2,28.8,37.9,30.6,37.9,32.8z M37,32.8
+            <path d="M14.6,36.7h-6V29h6v1.6h-4.1v1.5h3.7v1.5h-3.7v1.5h4.1V36.7z"/>
+            <path d="M20.7,30.6v6.1h-1.9v-6.1h-2.5v-1.7h6.9v1.7H20.7z"/>
+            <path d="M25,36.7V29h1.9v7.7H25z"/>
+            <path d="M37.9,32.8c0,2.2-1.8,4-4,4s-4-1.8-4-4s1.8-4,4-4C36.2,28.8,37.9,30.6,37.9,32.8z M37,32.8
 			c0-1.8-1.3-3.2-3.1-3.2c-1.7,0-3.1,1.4-3.1,3.2s1.3,3.1,3.1,3.1C35.7,36,37,34.6,37,32.8z"/>
-		<path d="M46,33.9c0,1.8-1.3,3-2.8,3c-0.9,0-1.8-0.4-2.3-1v0.9H40v-8.3h0.9V32c0.5-0.7,1.3-1,2.3-1
+            <path d="M46,33.9c0,1.8-1.3,3-2.8,3c-0.9,0-1.8-0.4-2.3-1v0.9H40v-8.3h0.9V32c0.5-0.7,1.3-1,2.3-1
 			C44.7,30.9,46,32.1,46,33.9z M45.2,33.9c0-1.4-0.9-2.2-2.1-2.2c-1.1,0-2.1,0.9-2.1,2.2s1,2.2,2.1,2.2
 			C44.2,36.1,45.2,35.2,45.2,33.9z"/>
-		<path d="M48.4,35c0.1,0.8,0.8,1.2,1.7,1.2c0.8,0,1.4-0.4,1.4-1c0-0.5-0.4-0.7-0.9-0.8l-1.3-0.3
+            <path d="M48.4,35c0.1,0.8,0.8,1.2,1.7,1.2c0.8,0,1.4-0.4,1.4-1c0-0.5-0.4-0.7-0.9-0.8l-1.3-0.3
 			c-0.9-0.2-1.5-0.7-1.5-1.5c0-1,0.9-1.7,2.2-1.7s2.1,0.7,2.3,1.6l-0.8,0.2c-0.1-0.6-0.7-1-1.5-1s-1.3,0.4-1.3,0.9
 			c0,0.4,0.3,0.7,0.9,0.8l1.4,0.3c0.8,0.2,1.5,0.6,1.5,1.5c0,1.1-0.9,1.8-2.3,1.8c-1.3,0-2.3-0.6-2.5-1.7L48.4,35z"/>
-		<path d="M59.5,34h-4.9c0.1,1.3,1,2,2,2c0.8,0,1.5-0.3,1.9-1.2l0.8,0.2c-0.5,1.2-1.4,1.8-2.7,1.8c-1.5,0-2.9-1.2-2.9-3
+            <path d="M59.5,34h-4.9c0.1,1.3,1,2,2,2c0.8,0,1.5-0.3,1.9-1.2l0.8,0.2c-0.5,1.2-1.4,1.8-2.7,1.8c-1.5,0-2.9-1.2-2.9-3
 			s1.4-3,2.9-3s2.7,1.1,2.8,2.8V34H59.5z M54.7,33.4h4c-0.2-1.1-1-1.7-1.9-1.7C55.8,31.6,54.8,32.2,54.7,33.4z"/>
-		<path d="M65.1,31L65,31.8c-0.1,0-0.2,0-0.3,0c-1.5,0-2.3,1.1-2.3,2.7v2.2h-0.9V31h0.9v1.4c0.5-0.8,1.2-1.5,2.3-1.5
+            <path d="M65.1,31L65,31.8c-0.1,0-0.2,0-0.3,0c-1.5,0-2.3,1.1-2.3,2.7v2.2h-0.9V31h0.9v1.4c0.5-0.8,1.2-1.5,2.3-1.5
 			C64.8,30.9,64.9,30.9,65.1,31z"/>
-		<path d="M69.4,36.7h-1L65.9,31h1l2,4.6l2-4.6h1L69.4,36.7z"/>
-		<path d="M78.6,34h-4.9c0.1,1.3,1,2,2,2c0.8,0,1.5-0.3,1.9-1.2l0.8,0.2c-0.5,1.2-1.4,1.8-2.7,1.8c-1.5,0-2.9-1.2-2.9-3
+            <path d="M69.4,36.7h-1L65.9,31h1l2,4.6l2-4.6h1L69.4,36.7z"/>
+            <path d="M78.6,34h-4.9c0.1,1.3,1,2,2,2c0.8,0,1.5-0.3,1.9-1.2l0.8,0.2c-0.5,1.2-1.4,1.8-2.7,1.8c-1.5,0-2.9-1.2-2.9-3
 			s1.4-3,2.9-3s2.7,1.1,2.8,2.8L78.6,34L78.6,34z M73.8,33.4h4c-0.2-1.1-1-1.7-1.9-1.7C74.9,31.6,73.9,32.2,73.8,33.4z"/>
-	<circle cx="52.8" cy="7.4" r="2.7"/>
-	<circle cx="23.4" cy="14.5" r="1.7"/>
-	<circle cx="21.3" cy="2.3" r="2.3"/>
-	<circle cx="37.9" cy="3.4" r="1.4"/>
-	<circle cx="46.1" cy="12.8" r="0.7"/>
-	<circle cx="16.2" cy="18.3" r="0.7"/>
-	<circle cx="61.7" cy="14.2" r="1.4"/>
-	<circle cx="32.5" cy="10.1" r="0.9"/>
-	<path id="XMLID_2858_" d="M57.6,26.7c-4.5-5.1-11.1-8.3-18.4-8.3s-13.9,3.2-18.4,8.3c4.8-4.2,11.2-6.8,18.4-6.8
+            <circle cx="52.8" cy="7.4" r="2.7"/>
+            <circle cx="23.4" cy="14.5" r="1.7"/>
+            <circle cx="21.3" cy="2.3" r="2.3"/>
+            <circle cx="37.9" cy="3.4" r="1.4"/>
+            <circle cx="46.1" cy="12.8" r="0.7"/>
+            <circle cx="16.2" cy="18.3" r="0.7"/>
+            <circle cx="61.7" cy="14.2" r="1.4"/>
+            <circle cx="32.5" cy="10.1" r="0.9"/>
+            <path id="XMLID_2858_" d="M57.6,26.7c-4.5-5.1-11.1-8.3-18.4-8.3s-13.9,3.2-18.4,8.3c4.8-4.2,11.2-6.8,18.4-6.8
 		C46.4,19.9,52.8,22.5,57.6,26.7z"/>
 </svg>
     </a>
     <nav class="header__menu">
-        <a href="/seti/" >Observing now</a>
-        <a href="what-is-seti.html" class="active">What is SETI</a>
-        <a href="the-telescope.html" >The Telescopes</a>
+        <a href="/seti/" class="active">Observing now</a>
+        <a href="what-is-seti.html" >What is SETI</a>
+        <a href="what-is-seti.html" >The Telescopes</a>
         <a href="/seti/" >Progress</a>
     </nav>
     <a href="donate" class="header__donate button abs">Donate Now</a>
@@ -144,148 +146,217 @@
     </button>
 </header>
 <main class="page" data-page>
-    <article class="hero hero--no-min-h header-offset">
-        <h1 class="hero__title uppercase">
-            What is SETI?
-        </h1>
-        <p class="hero__lead uppercase">This site follows the radio signal search at the Allen Telescope Array.</p>
+    <!-- TODO: Add aladin--show class from server-side if 'clickedHero' cookie's value is '1' -->
+    <!-- TODO: Add 'status-live' when observation is in LIVE mode -->
+    <!-- TODO: Add the URL of the webservice that recieves the data to 'data-service-url' -->
+    <div class="aladin abs abs--full status-live <?= isset($_COOKIE['clickedHero']) ? 'aladin--show' : '' ?>" id="js-aladin" data-service-url="data/sample-observation.json">
+        <div class="aladin__canvas abs abs--full" id="js-aladin-container"></div>
 
-        <div class="timeline timeline--top">
-            <span class="timeline__point"></span>
-            <div class="timeline__half timeline__half--text timeline__half--bleed-bg-mobile">
-                <div class="copy">
-                    <p>For 12 hours a day we are searching the galaxy for radio
-                        signals with our 42 dish array.</p>
-
-                    <p>You can follow along, see what we are observing, and be
-                        a part of the search</p>
-
-                    <p>This site is for the interested public to keep abreast of our ET
-                        signal search effort. Also, this site is designed to be useful for the ATA operation team members. </p>
-                </div>
-            </div>
-            <div class="timeline__half timeline__half--image">
-                <picture>
-                    <source srcset="i/telescopes-1-big.jpg" media="(min-width: 413px)">
-                    <source srcset="i/telescopes-1-small.jpg" media="(max-width: 412px)">
-                    <img srcset="i/telescopes-1-big.jpg" alt="Telescopes at the Allen Telescope Array, Hat Creek Radio Observatory">
-                </picture>
-                <span class="timeline__point"></span>
+        <div class="dish">
+            <div class="dish__label abs z-low">
+                <span class="bullet blki">Allen Telescope Array</span>
             </div>
         </div>
-    </article>
-    <div class="seperator-image"></div>
-    <section class="section">
-        <div class="timeline timeline--top">
-            <div class="timeline__half timeline__half--text">
-                <h1 class="section__title">Scheduling</h1>
-                <div class="copy copy--grey">
-                    <p>For 12 hours a day, usually during daylight hours, we are not observing.
-                        This time is shared with SRI who operates and maintains the site. see
-                        <a href="http://google.com">HCRO</a> for details. The burden of mechanically
-                        and operationally maintaning suchsuch a large site has been off loaded to SRI in
-                        exchange for half the time use of the array. This arrangement has turned to work very well
-                        for both parties.
+
+        <nav class="aladin__controls abs vp-middle z-low">
+            <div class="vp-middle__content">
+                <button class="control-btn blk" type="button" title="Zoom In" data-zoom-in>
+                    <i class="icon">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                             viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+<path d="M16,32C7.2,32,0,24.8,0,16S7.2,0,16,0s16,7.2,16,16S24.8,32,16,32z M16,1.7C8.1,1.7,1.7,8.1,1.7,16S8.1,30.3,16,30.3
+	S30.3,23.9,30.3,16S23.9,1.7,16,1.7z"/>
+                            <polygon points="23.4,15.1 16.9,15.1 16.9,8.6 15.1,8.6 15.1,15.1 8.6,15.1 8.6,16.9 15.1,16.9 15.1,23.4 16.9,23.4 16.9,16.9
+	23.4,16.9 "/>
+</svg>
+                    </i>
+                    <span class="visuallyhidden">Zoom in</span>
+                </button>
+                <button class="control-btn blk" type="button" title="Zoom Out" data-zoom-out>
+                    <i class="icon">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                             viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+                    <path d="M16,32C7.2,32,0,24.8,0,16S7.2,0,16,0s16,7.2,16,16S24.8,32,16,32z M16,1.7C8.1,1.7,1.7,8.1,1.7,16S8.1,30.3,16,30.3
+                        S30.3,23.9,30.3,16S23.9,1.7,16,1.7z"/>
+                            <rect x="8.6" y="15.1" width="14.7" height="1.7"/>
+                    </svg>
+                    </i>
+                    <span class="visuallyhidden">Zoom Out</span>
+                </button>
+                <button class="control-btn blk" type="button" title="Toggle Constellations" data-constellations>
+                    <i class="icon">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                             viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+<path d="M16,32C7.2,32,0,24.8,0,16S7.2,0,16,0s16,7.2,16,16S24.8,32,16,32z M16,1.7C8.1,1.7,1.7,8.1,1.7,16S8.1,30.3,16,30.3
+	S30.3,23.9,30.3,16S23.9,1.7,16,1.7z"/>
+                            <path d="M27,11.7c-1.3,0-2.3,1-2.3,2.3v0.1L20.5,15c-0.3-1-1.2-1.6-2.2-1.6s-1.7,0.5-2.1,1.3L9.3,12c0.1-0.3,0.1-0.4,0.1-0.7
+	C9.4,10,8.4,9,7.1,9s-2.3,1-2.3,2.3c0,1,0.7,1.9,1.6,2.2l-0.5,3.3c-1.2,0.2-2,1.1-2,2.2c0,1.3,1,2.3,2.3,2.3c0.8,0,1.4-0.3,1.8-1
+	l2.1,1c-0.2,0.3-0.3,0.6-0.3,1c0,1.3,1,2.3,2.3,2.3s2.3-1,2.3-2.3c0-0.5-0.2-1-0.4-1.3l3.3-3.5c0.3,0.1,0.5,0.2,0.9,0.2
+	c1.2,0,2.2-1,2.3-2.2l4.2-0.9c0.3,0.8,1.2,1.4,2.1,1.4c1.3,0,2.3-1,2.3-2.3S28.3,11.7,27,11.7z M13.6,20.8c-0.3-0.3-0.9-0.4-1.3-0.4
+	c-0.6,0-1.1,0.3-1.6,0.6l-2.2-1.1c0.1-0.2,0.1-0.4,0.1-0.6c0-1.1-0.8-2.1-1.9-2.2l0.5-3.2c0.7,0,1.3-0.3,1.7-0.9l7.2,2.7
+	c0,0.1,0,0.1,0,0.2c0,0.7,0.3,1.3,0.7,1.6L13.6,20.8z"/>
+</svg>
+                    </i>
+                    <span class="visuallyhidden">Constellations</span>
+                </button>
+                <button class="control-btn control-btn--crosshair blk" type="button" title="Go to actual observation" data-set-center>
+                    <i class="icon">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                             viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+                    <path d="M32,15.3h-3.6C28.1,9,23,3.9,16.7,3.6V0h-1.4v3.6C9,3.9,3.9,9,3.6,15.3H0v1.4h3.6C3.9,23,9,28.1,15.3,28.4V32h1.4v-3.6
+                        C23,28.1,28.1,23,28.4,16.7H32V15.3z M16.7,27v-2.3h-1.4V27C9.8,26.7,5.3,22.2,5,16.7h2.3v-1.4H5C5.3,9.8,9.8,5.3,15.3,5v2.3h1.4V5
+                        c5.5,0.4,9.9,4.8,10.3,10.3h-2.3v1.4H27C26.7,22.2,22.2,26.7,16.7,27z"/>
+                    </svg>
+                    </i>
+                    <span class="visuallyhidden">Back to center</span>
+                </button>
+                <button class="control-btn control-btn--fullscreen blk" type="button" title="Switch to fullscreen view" data-fullscreen>
+                    <i class="icon">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                             viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+                        <polygon points="20.3,7.4 20.3,9.1 22.8,9.1 19.1,12.9 20.3,14.1 24.1,10.4 24.1,12.9 25.8,12.9 25.8,7.4 " class="arrow-top"/>
+                            <polygon points="12.5,18.7 8.7,22.4 8.7,19.9 7,19.9 7,25.4 12.5,25.4 12.5,23.7 10,23.7 13.7,19.9 " class="arrow-bottom"/>
+                            <path d="M16,32C7.2,32,0,24.8,0,16S7.2,0,16,0s16,7.2,16,16S24.8,32,16,32z M16,1.7C8.1,1.7,1.7,8.1,1.7,16S8.1,30.3,16,30.3
+                            S30.3,23.9,30.3,16S23.9,1.7,16,1.7z"/>
+                    </svg>
+                    </i>
+                    <span class="visuallyhidden">Go Fullscreen</span>
+                </button>
+            </div>
+        </nav>
+
+        <div class="aladin__bottom-nav abs w-full z-low">
+            <div class="data">
+                <div class="data__cell data__cell--short">
+                    <h1 class="status-header">
+                        Live: <strong>Observing Now</strong>
+                    </h1>
+                    <p class="text-14 status-desc">
+                        Telescope array searching extraterrestrial radio signs
                     </p>
                 </div>
-            </div>
-            <div class="timeline__half timeline__half--image">
-                <picture>
-                    <source srcset="i/seti-telescope-2-big.jpg" media="(min-width: 413px)">
-                    <source srcset="i/seti-telescope-2-small.jpg" media="(max-width: 412px)">
-                    <img srcset="i/seti-telescope-2-big.jpg" alt="Telescopes at the Allen Telescope Array, Hat Creek Radio Observatory">
-                </picture>
-                <span class="timeline__point"></span>
+                <div class="data__cell">
+                <span class="figure">
+                    <span class="figure__label">
+                        Session
+                        <i class="icon">
+                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                 viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+<path d="M16,32C7.2,32,0,24.8,0,16S7.2,0,16,0s16,7.2,16,16S24.8,32,16,32z M16,1.7C8.1,1.7,1.7,8.1,1.7,16S8.1,30.3,16,30.3
+	S30.3,23.9,30.3,16S23.9,1.7,16,1.7z"/>
+<rect x="14.5" y="12.6" width="3" height="15.3"/>
+<circle cx="16" cy="9.7" r="1.9"/>
+</svg>
+                        </i>
+                    </span>
+                    <span class="figure__data">#88.823</span>
+                </span>
+                </div>
+                <div class="data__cell">
+                <span class="figure">
+                    <span class="figure__label">
+                        Location on sky
+                        <i class="icon">
+                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                 viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+<path d="M16,32C7.2,32,0,24.8,0,16S7.2,0,16,0s16,7.2,16,16S24.8,32,16,32z M16,1.7C8.1,1.7,1.7,8.1,1.7,16S8.1,30.3,16,30.3
+	S30.3,23.9,30.3,16S23.9,1.7,16,1.7z"/>
+<rect x="14.5" y="12.6" width="3" height="15.3"/>
+<circle cx="16" cy="9.7" r="1.9"/>
+</svg>
+                        </i>
+                    </span>
+                    <span class="figure__data">Pisces</span>
+                </span><span class="figure">
+                    <span class="figure__label">
+                        Bandwidth
+                        <i class="icon">
+                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                 viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+<path d="M16,32C7.2,32,0,24.8,0,16S7.2,0,16,0s16,7.2,16,16S24.8,32,16,32z M16,1.7C8.1,1.7,1.7,8.1,1.7,16S8.1,30.3,16,30.3
+	S30.3,23.9,30.3,16S23.9,1.7,16,1.7z"/>
+<rect x="14.5" y="12.6" width="3" height="15.3"/>
+<circle cx="16" cy="9.7" r="1.9"/>
+</svg>
+                        </i>
+                    </span>
+                    <span class="figure__data">41.780</span>
+                </span><span class="figure">
+                    <span class="figure__label">
+                        Tuning
+                        <i class="icon">
+                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                 viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+<path d="M16,32C7.2,32,0,24.8,0,16S7.2,0,16,0s16,7.2,16,16S24.8,32,16,32z M16,1.7C8.1,1.7,1.7,8.1,1.7,16S8.1,30.3,16,30.3
+	S30.3,23.9,30.3,16S23.9,1.7,16,1.7z"/>
+<rect x="14.5" y="12.6" width="3" height="15.3"/>
+<circle cx="16" cy="9.7" r="1.9"/>
+</svg>
+                        </i>
+                    </span>
+                    <span class="figure__data">1452.53 mhz</span>
+                </span><span class="figure">
+                    <span class="figure__label">
+                        Objective
+                        <i class="icon">
+                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                 viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+<path d="M16,32C7.2,32,0,24.8,0,16S7.2,0,16,0s16,7.2,16,16S24.8,32,16,32z M16,1.7C8.1,1.7,1.7,8.1,1.7,16S8.1,30.3,16,30.3
+	S30.3,23.9,30.3,16S23.9,1.7,16,1.7z"/>
+<rect x="14.5" y="12.6" width="3" height="15.3"/>
+<circle cx="16" cy="9.7" r="1.9"/>
+</svg>
+                        </i>
+                    </span>
+                    <span class="figure__data">First Look</span>
+                </span>
+                </div>
             </div>
         </div>
-        <div class="timeline">
-            <div class="timeline__half timeline__half--text">
-                <div class="copy copy--purple">
-                    <p>Note that our exact observing shcedule may be erratic.
-                        As stated aove, SRI uses the array during the day. In these cases they allow us to start
-                        early or observe the entire day. We usually arrange to observe full time on the weekends.
-                        Sometimes we use the entire weekend to observe, but some weekends are spent testing and developing
-                        software and systems. Is is impossible to stick to an exact schedule.
-                    </p>
-                </div>
-            </div>
-            <div class="timeline__half timeline__half--image">
-                <picture>
-                    <source srcset="i/seti-telescope-3-big.jpg" media="(min-width: 413px)">
-                    <source srcset="i/seti-telescope-3-small.jpg" media="(max-width: 412px)">
-                    <img srcset="i/seti-telescope-3-big.jpg" alt="Telescopes at the Allen Telescope Array, Hat Creek Radio Observatory">
-                </picture>
-                <span class="timeline__point"></span>
-            </div>
-        </div>
-    </section>
-    <section class="section section--no-bg section--last">
-        <div class="timeline timeline--top">
-            <div class="timeline__half timeline__half--text">
-                <h1 class="section__title">Observing</h1>
-                <div class="copy">
-                    <p>For much of the day you will see we are waiting for observing to start.
-                        As explained above, the schedule is subject to change at any time, so pay attention.
-                    </p>
-                    <p>
-                        When observing begins there is a lengthy process of system initialization and calibration.
-                        This can take as long as an hour or more.
-                    </p>
-                    <p>
-                        When the frequency calibrations are complete the observing begins, continuing till the end of
-                        the observing period for the day. In the star map on the right you will see in yellow squares the
-                        objects being observed
-                    </p>
-                </div>
-            </div>
-            <div class="timeline__half">
-                <div class="star-map-demo" data-map-demo-anim>
-                    <div class="star-map-demo__observed first">
-                        <div class="star-map-demo__circle"></div>
-                        <p class="star-map-demo__label">
-                            SETI is now searching for E.T. signals
-                        </p>
-                    </div>
 
-                    <div class="star-map-demo__observed second">
-                        <div class="star-map-demo__circle red"></div>
-                        <p class="star-map-demo__label">
-                            SETI is now searching for E.T. signals
-                        </p>
-                    </div>
+    </div>
+    <!-- TODO: Only render this if the user has not clicked the 'Show me how' button, detect cookie from backend -->
+    <? if(!isset($_COOKIE['clickedHero'])) : ?>
+    <div class="home-hero abs abs--full vp-middle header-offset" id="js-home-hero">
+        <article class="home-hero__content vp-middle__content uppercase">
+            <h1 class="home-hero__title">In every 90 seconds</h1>
 
-                    <div class="star-map-demo__circle medium third"></div>
-                    <div class="star-map-demo__circle small blue fourth"></div>
-                    <div class="star-map-demo__circle medium fifth"></div>
-                    <div class="star-map-demo__circle medium fifth"></div>
-                    <div class="star-map-demo__circle small red sixth"></div>
-                    <div class="star-map-demo__circle medium blue seventh"></div>
-                    <div class="star-map-demo__circle small eight"></div>
-                    <div class="star-map-demo__circle medium red ninth"></div>
-                    <div class="star-map-demo__circle small blue tenth"></div>
+            <p class="home-hero__lead hide-till-anim">
+                A new planet is being searched for signals of E.T. by our telescope
+            </p>
 
-                </div>
-            </div>
-        </div>
-        <div class="dish dish--hide-overflow"></div>
-    </section>
+            <button type="button"
+                    id="js-hide-home-hero"
+                    class="button button--cta hide-till-anim">
+                Show me how
+            </button>
+        </article>
+    </div>
+    <? endif; ?>
+
+
 </main>
-
-<div class="space">
-    <div class="space__noise abs abs--full"></div>
-    <canvas class="space__canvas abs abs--full" id="js-space"></canvas>
-</div>
 
 
 <nav class="mobile-nav">
     <div class="mobile-nav__scroller">
-        <a href="/seti/" >Observing now</a>
-        <a href="what-is-seti.html" class="active">What is SETI</a>
-        <a href="the-telescope.html" >The Telescopes</a>
+        <a href="/seti/" class="active">Observing now</a>
+        <a href="what-is-seti.html" >What is SETI</a>
+        <a href="what-is-seti.html" >The Telescopes</a>
         <a href="/seti/" >Progress</a>
     </div>
 </nav>
 <div class="mobile-nav-cover abs--full" id="js-mobile-nav-cover"></div>
+
+<!-- Client side templating with Handlebars -->
+<!-- Only needed on the homepage -->
+<script id="bg-video" type="text/x-handlebars-template">
+    <video class="bg-video" autoplay loop preload="auto" muted data-bg-video>
+        <source src="{{videoSource}}.mp4" type="video/mp4">
+        <source src="{{videoSource}}.ogv" type="video/ogg">
+        <source src="{{videoSource}}.webm" type="video/webm">
+    </video>
+</script>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
@@ -294,8 +365,10 @@
     }
 </script>
 
+<!-- Only load these 2 files if we are on the homepage -->
+<script src="js/plugin.home.min.js"></script>
+<script src="js/app.home.min.js"></script>
 
-<script src="js/space.min.js"></script>
 
 <script src="js/plugin.min.js"></script>
 <script src="js/app.min.js"></script>
@@ -303,8 +376,8 @@
     SETI.Main.getInstance();
 
 
+    SETI.Home.getInstance();
 
-    SETI.Space.init();
 
 </script>
 </body>

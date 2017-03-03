@@ -17,6 +17,10 @@
         height: $header-h-small;
     }
 
+    .aladin-fullscreen & {
+        display: none;
+    }
+
     a {
         color: $white;
         -webkit-tap-highlight-color: transparent;

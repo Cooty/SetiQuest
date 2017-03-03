@@ -16,6 +16,8 @@ SETI.Aladin = (/** @lends SETI.Aladin */function() {
         $constellationsBtn,
         $setCenterBtn,
         $fullScreenBtn,
+        $body,
+        body,
         isFullScreen = false;
 
 	/**
@@ -31,6 +33,7 @@ SETI.Aladin = (/** @lends SETI.Aladin */function() {
                 render();
                 addEvents();
                 getObservationData();
+                SETI.Plugins.init();
             }
         }
 	}
@@ -92,6 +95,8 @@ SETI.Aladin = (/** @lends SETI.Aladin */function() {
 	 */
 	function initDOMElements() {
         container = document.getElementById('js-aladin-container');
+        $body = SETI.Performance.getCachedDOM().$body;
+        body = $body[0];
 
         $aladinAppContainer = $('#js-aladin');
         aladinAppContainer = $aladinAppContainer[0];
@@ -104,17 +109,17 @@ SETI.Aladin = (/** @lends SETI.Aladin */function() {
 
 	function toggleFullscreen() {
         if(!isFullScreen) {
-            if (aladinAppContainer.requestFullscreen) {
-                aladinAppContainer.requestFullscreen();
+            if (body.requestFullscreen) {
+                body.requestFullscreen();
                 isFullScreen = true;
-            } else if (aladinAppContainer.webkitRequestFullscreen) {
-                aladinAppContainer.webkitRequestFullscreen();
+            } else if (body.webkitRequestFullscreen) {
+                body.webkitRequestFullscreen();
                 isFullScreen = true;
-            } else if (aladinAppContainer.mozRequestFullScreen) {
-                aladinAppContainer.mozRequestFullScreen();
+            } else if (body.mozRequestFullScreen) {
+                body.mozRequestFullScreen();
                 isFullScreen = true;
-            } else if (aladinAppContainer.msRequestFullscreen) {
-                aladinAppContainer.msRequestFullscreen();
+            } else if (body.msRequestFullscreen) {
+                body.msRequestFullscreen();
                 isFullScreen = true;
             }
         } else {
@@ -134,6 +139,7 @@ SETI.Aladin = (/** @lends SETI.Aladin */function() {
         }
 
         $(this).toggleClass('reverse-arrows');
+        $body.toggleClass('aladin-fullscreen');
 
         this.blur();
 
