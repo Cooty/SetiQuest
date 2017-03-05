@@ -1,0 +1,113 @@
+.notes {
+  $gutter: 14px;
+  $plane-h: 420px;
+  $mb: 30px;
+
+  width: 450px;
+  @include panel-bg();
+
+  &__title {
+    position: relative;
+    border-top: 3px solid $panel-border-grey;
+    padding: 7px $gutter;
+    font-size: 12px;
+    color: $silver;
+    font-weight: 700;
+    cursor: pointer;
+
+    .icon {
+      position: absolute;
+      right: $gutter;
+      top: 50%;
+      margin-top: -10px;
+      @include size(20px);
+      @include prefixer(transition, all .3s ease-in-out, webkit);
+    }
+
+  }
+
+  &__body {
+    overflow: hidden;
+    height: 0;
+    padding: 0 $gutter;
+    @include prefixer(transition, all .3s ease-in-out, webkit);
+  }
+
+  &--opened {
+
+    .notes__body {
+      height: $plane-h + $mb;
+      overflow: visible;
+    }
+
+    .notes__title {
+
+      .icon-caret-up {
+        @include prefixer(transform, rotate(90deg), webkit ms);
+      }
+
+    }
+
+  }
+
+  &__list {
+    margin: 10px 0 $mb 0;
+    max-height: $plane-h;
+    overflow: auto;
+
+    /* Let's get this party started */
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: rgba(#222122, .9);
+      border-radius: 8px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      border-radius: 8px;
+      background: $panel-border-grey;
+    }
+
+  }
+
+}
+
+.note {
+  $avatar-size: 50px;
+  position: relative;
+  padding-left: $avatar-size + 12px;
+  padding-right: $base-spacing;
+  margin-bottom: $base-spacing;
+
+  &__avatar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 1px solid #545454;
+    background-color: #222122;
+    border-radius: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    @include size($avatar-size);
+  }
+
+  &__body {
+    font-size: 1.2rem;
+    color: $silver;
+  }
+
+  &__header {
+    margin-bottom: 8px;
+  }
+
+  &__content {
+    line-height: 1.3;
+  }
+
+}
+

@@ -80,3 +80,9 @@
 
   @include prefixer(backdrop-filter, blur(6px), webkit);
 }
+
+@mixin panel-bg() {
+  background-color: $panel-grey;
+  background-color: rgba($panel-grey, .8);
+  @include prefixer(backdrop-filter, blur(3px), webkit);
+}

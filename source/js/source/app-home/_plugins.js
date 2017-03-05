@@ -9,7 +9,8 @@
 SETI.Plugins = (/** @lends SETI.Plugins */function() {
 
     var $tooltips,
-        theme = 'tooltipster-borderless';
+        theme = 'tooltipster-borderless',
+        $nanoScrollers;
 
     /**
      * Initialize the module
@@ -53,6 +54,7 @@ SETI.Plugins = (/** @lends SETI.Plugins */function() {
      */
     function initDOMElements() {
         $tooltips = $('[data-tooltip]');
+        $nanoScrollers = $('[data-nanoscroller]');
     }
 
 

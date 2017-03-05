@@ -23,6 +23,12 @@
         @include opaque-bg(top);
         @include prefixer(transition, all .25s ease-in, webkit);
         @include prefixer(transform, translateY($bottom-nav-h), webkit ms);
+
+        .notes {
+            right: 0;
+            bottom: $bottom-nav-h;
+        }
+
     }
 
     &__controls {

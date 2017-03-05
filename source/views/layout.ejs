@@ -16,6 +16,9 @@
         <main class="page" data-page>
             <%- body %>
         </main>
+        <% if(isHome) { %>
+            <%- include('aladin/progress') -%>
+        <% } %>
         <% if(spaceBg) { %>
             <%- include('common/space') -%>
         <% } %>

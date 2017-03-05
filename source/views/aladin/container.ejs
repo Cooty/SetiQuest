@@ -4,12 +4,14 @@
 <div class="aladin abs abs--full status-live <%= clickedHero === '1' ? 'aladin--show' : '' %>" id="js-aladin" data-service-url="data/sample-observation.json">
     <div class="aladin__canvas abs abs--full" id="js-aladin-container"></div>
 
+    <!-- Satellite Dish on the bottom -->
     <div class="dish">
         <div class="dish__label abs z-low">
             <span class="bullet blki">Allen Telescope Array</span>
         </div>
-    </div>
+    </div> <!-- End dish -->
 
+    <!-- Buttons on the left -->
     <nav class="aladin__controls abs vp-middle z-low">
         <div class="vp-middle__content">
             <button class="control-btn blk" type="button" title="Zoom In" data-zoom-in data-tooltip data-side="right">
@@ -62,7 +64,7 @@
                 </i>
                 <span class="visuallyhidden">Back to center</span>
             </button>
-            <button class="control-btn control-btn--fullscreen blk" type="button" title="Switch to fullscreen mode" data-fullscreen data-tooltip data-side="right">
+            <button class="control-btn control-btn--fullscreen blk" type="button" title="Toggle fullscreen mode" data-fullscreen data-tooltip data-side="right">
                 <i class="icon">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                          viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
@@ -75,9 +77,11 @@
                 <span class="visuallyhidden">Go Fullscreen</span>
             </button>
         </div>
-    </nav>
+    </nav> <!-- END Buttons on the left -->
 
+    <!-- Bottom row with observation info -->
     <div class="aladin__bottom-nav abs w-full z-low">
+        <!-- Grid for the data -->
         <div class="data">
             <div class="data__cell data__cell--short">
                 <h1 class="status-header">
@@ -163,7 +167,81 @@
                     <span class="figure__data">First Look</span>
                 </span>
             </div>
-        </div>
-    </div>
+        </div> <!-- END Grid for the data -->
+
+        <article class="notes abs" data-notes>
+            <header class="notes__title" data-notes-header>
+                Notifications
+                <i class="icon icon-caret-up">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+                    <path d="M21.6,16L21.6,16C21.6,16,21.6,16,21.6,16L12.4,0c0,0,0,0,0,0l-2,1.1c0,0,0,0,0,0L19,16l-8.6,14.8c0,0,0,0,0,0l2,1.1
+                        c0,0,0,0,0,0L21.6,16C21.6,16,21.6,16,21.6,16L21.6,16z"/>
+                    </svg>
+                </i>
+            </header>
+            <div class="notes__body">
+                <ul class="notes__list">
+                    <li class="note">
+                        <span class="note__avatar blk abs" style="background-image: url(//placeholdit.imgix.net/~text?txtsize=10&txt=50%C3%9750&w=50&h=50);"></span>
+                        <div class="note__body">
+                            <header class="note__header">
+                                <strong>Observer notes</strong>&nbsp;&ndash;&nbsp;2017-02-12&nbsp;02:29:14
+                            </header>
+                            <div class="note__content">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A explicabo illum ipsam iure, neque quae ratione vitae! Dignissimos dolorem dolorum, ea, enim exercitationem incidunt, nihil provident quas rerum saepe veritatis.
+                            </div>
+                        </div>
+                    </li>
+                    <li class="note">
+                        <span class="note__avatar blk abs" style="background-image: url(//placeholdit.imgix.net/~text?txtsize=10&txt=50%C3%9750&w=50&h=50);"></span>
+                        <div class="note__body">
+                            <header class="note__header">
+                                <strong>Observer notes</strong>&nbsp;&ndash;&nbsp;2017-02-12&nbsp;02:29:14
+                            </header>
+                            <div class="note__content">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A explicabo illum ipsam iure, neque quae ratione vitae! Dignissimos dolorem dolorum, ea, enim exercitationem incidunt, nihil provident quas rerum saepe veritatis.
+                            </div>
+                        </div>
+                    </li>
+                    <li class="note">
+                        <span class="note__avatar blk abs" style="background-image: url(//placeholdit.imgix.net/~text?txtsize=10&txt=50%C3%9750&w=50&h=50);"></span>
+                        <div class="note__body">
+                            <header class="note__header">
+                                <strong>Observer notes</strong>&nbsp;&ndash;&nbsp;2017-02-12&nbsp;02:29:14
+                            </header>
+                            <div class="note__content">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A explicabo illum ipsam iure, neque quae ratione vitae! Dignissimos dolorem dolorum, ea, enim exercitationem incidunt, nihil provident quas rerum saepe veritatis.
+                            </div>
+                        </div>
+                    </li>
+                    <li class="note">
+                        <span class="note__avatar blk abs" style="background-image: url(//placeholdit.imgix.net/~text?txtsize=10&txt=50%C3%9750&w=50&h=50);"></span>
+                        <div class="note__body">
+                            <header class="note__header">
+                                <strong>Observer notes</strong>&nbsp;&ndash;&nbsp;2017-02-12&nbsp;02:29:14
+                            </header>
+                            <div class="note__content">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A explicabo illum ipsam iure, neque quae ratione vitae! Dignissimos dolorem dolorum, ea, enim exercitationem incidunt, nihil provident quas rerum saepe veritatis.
+                            </div>
+                        </div>
+                    </li>
+                    <li class="note">
+                        <span class="note__avatar blk abs" style="background-image: url(//placeholdit.imgix.net/~text?txtsize=10&txt=50%C3%9750&w=50&h=50);"></span>
+                        <div class="note__body">
+                            <header class="note__header">
+                                <strong>Observer notes</strong>&nbsp;&ndash;&nbsp;2017-02-12&nbsp;02:29:14
+                            </header>
+                            <div class="note__content">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A explicabo illum ipsam iure, neque quae ratione vitae! Dignissimos dolorem dolorum, ea, enim exercitationem incidunt, nihil provident quas rerum saepe veritatis.
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </article>
+
+    </div> <!-- END Bottom row with observation info -->
 
 </div>

@@ -1,0 +1,21 @@
+.progress {
+  $w: 640px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: $w;
+  background: $white;
+  z-index: 1;
+  @include prefixer(transform, translateX($w), webkit ms);
+  @include prefixer(transition, all .3s ease-in-out, webkit);
+
+  .hide-hero & {
+    z-index: $top;
+  }
+
+  .show-progress & {
+    @include prefixer(transform, translateX(0), webkit ms);
+  }
+
+}
