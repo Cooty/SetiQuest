@@ -60,4 +60,32 @@
 
     }
 
+    &__progressbar {
+        left: 0;
+        right: 0;
+        top: -2px;
+        height: 3px;
+
+        .aladin__progressbar__fill {
+            position: relative;
+            height: 100%;
+            background: $purple;
+            @include prefixer(transition, all .3s ease-in, webkit);
+
+            &:after {
+                content: '';
+                position: absolute;
+                border-radius: 100%;
+                top: 0;
+                right: -2px;
+                box-shadow: 0 0 4px lighten($purple, 10%);
+                background: lighten($purple, 10%);
+                @include size(4px);
+                @include prefixer(filter, blur(3px), webkit ms);
+            }
+
+        }
+
+    }
+
 }
