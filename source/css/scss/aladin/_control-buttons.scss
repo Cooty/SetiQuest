@@ -4,20 +4,27 @@
   margin-bottom: $base-spacing;
   cursor: pointer;
   padding: 0;
-  border-radius: 100%;
   color: $white;
-  @include size(35px);
-  @include prefixer(transition, box-shadow .3s ease-in-out, webkit);
 
   &:last-of-type {
     margin-bottom: 0;
+  }
+
+  .icon {
+    border-radius: 100%;
+    @include size(35px);
+    @include prefixer(transition, box-shadow .3s ease-in-out, webkit);
   }
 
   &:focus,
   &:hover {
     &:not([disabled]) {
       outline: none;
-      box-shadow: 0 0 10px rgba($white, 1);
+
+      .icon {
+        box-shadow: 0 0 10px rgba($white, 1);
+      }
+
     }
   }
 

@@ -49,6 +49,14 @@
     height: 100%;
 }
 
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-5 {
+    margin-bottom: 5px;
+}
+
 @each $name, $value in $z-indexes {
     .z-#{$name} {
         z-index: $value;

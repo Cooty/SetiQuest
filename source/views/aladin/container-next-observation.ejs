@@ -1,0 +1,43 @@
+<!-- TODO: Add aladin--show class from server-side if 'clickedHero' cookie's value is '1' -->
+<!-- TODO: Add 'status-live' when observation is in LIVE mode -->
+<!-- TODO: Add the URL of the webservice that recieves the data to 'data-service-url' -->
+<div class="aladin abs abs--full status-calibration <%= clickedHero === '1' ? 'aladin--show' : '' %>" id="js-aladin" data-service-url="data/sample-observation.json">
+    <div class="aladin__canvas abs abs--full" id="js-aladin-container"></div>
+
+    <%- include('dish') -%>
+
+    <%- include('controls-position-disabled') -%>
+
+    <!-- Bottom row with observation info -->
+    <div class="aladin__bottom-nav abs w-full z-low">
+        <!-- Grid for the data -->
+        <div class="data">
+            <div class="data__cell data__cell--short">
+                <h1 class="status-header">
+                    Our next E.T. signal search starts in
+                </h1>
+                <p class="text-14 status-desc">
+                    <span class="text-middle">12</span> <span class="text-silver">hours</span> <span class="text-middle">50</span> <span class="text-silver">minutes</span> <span class="text-middle">09</span> <span class="text-silver">seconds</span>
+                </p>
+            </div>
+
+        </div> <!-- END Grid for the data -->
+
+        <!-- Label for the Progress opener button-->
+        <div class="right-text-column abs vp-middle">
+            <div class="vp-middle__content">
+                <span class="blk text-silver text-small mb-5">
+                    Explore the observations while the
+                </span>
+                    <span class="blk text-middle">
+                    telescopes are inactive
+                </span>
+            </div>
+        </div>
+        <!-- END Label for the Progress opener button-->
+
+        <%- include('notes') -%>
+
+    </div> <!-- END Bottom row with observation info -->
+
+</div>

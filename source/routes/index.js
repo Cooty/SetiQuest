@@ -6,6 +6,14 @@ router.get('/', function(req, res) {
     res.render('index', {title: 'Home' + titleSuffix, isHome: true, pageName: 'home', spaceBg: false, clickedHero: req.cookies.clickedHero});
 });
 
+router.get('/calibration', function(req, res) {
+    res.render('calibration', {title: 'Calibration...' + titleSuffix, isHome: true, pageName: 'home', spaceBg: false, clickedHero: req.cookies.clickedHero});
+});
+
+router.get('/next-observation', function(req, res) {
+    res.render('next-observation', {title: 'Next observation' + titleSuffix, isHome: true, pageName: 'home', spaceBg: false, clickedHero: req.cookies.clickedHero});
+});
+
 router.get('/donate', function(req, res) {
     res.render('donate', {title: 'Donate now' + titleSuffix, isHome: false, pageName: 'donate', spaceBg: false});
 });

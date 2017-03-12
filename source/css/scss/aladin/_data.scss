@@ -20,7 +20,18 @@
 
     &--short {
       width: 260px;
+
+      .status-calibration & {
+        width: 420px;
+
+        &:after {
+          display: none;
+        }
+
+      }
+
     }
+
 
     > .figure {
       margin-right: 50px;
@@ -41,7 +52,7 @@
   &__label {
     display: inline-block;
     font-size: 12px;
-    color: $label-grey;
+    color: $silver;
     margin-bottom: 8px;
     cursor: help;
 

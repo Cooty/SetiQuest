@@ -16,6 +16,58 @@
 
   .show-progress & {
     @include prefixer(transform, translateX(0), webkit ms);
+
+    .progress__toggle {
+
+      .text {
+        display: none;
+      }
+
+      .icon {
+        @include prefixer(transform, rotate(180deg), webkit ms);
+      }
+
+    }
+
+  }
+
+  &__toggle {
+    display: none;
+    position: absolute;
+    height: 48px;
+    bottom: 20px;
+    padding: 0 11px;
+    border-radius: 4px 0 0 4px;
+    font-size: 14px;
+    border: 0;
+    background: $white;
+    cursor: pointer;
+    @include prefixer(transition, all .3s ease-in-out, webkit);
+    @include prefixer(transform, translateX(-100%), webkit ms);
+
+    .text {
+      width: 100px;
+      margin-right: 5px;
+      text-align: left;
+    }
+
+    .icon {
+      @include size(20px);
+    }
+
+    > * {
+      vertical-align: middle;
+    }
+
+    @include hover-focus() {
+      outline: 0;
+      box-shadow: 0 0 10px rgba(255, 255, 255, .9);
+    }
+
+    .hide-hero & {
+      display: block;
+    }
+
   }
 
 }
