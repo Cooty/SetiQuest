@@ -144,7 +144,12 @@
 
     .icon {
       margin-bottom: 12px;
-      @include size(40px);
+
+      &,
+      > svg {
+        @include size(40px);
+      }
+
     }
 
     .text {
