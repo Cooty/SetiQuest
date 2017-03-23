@@ -1,5 +1,7 @@
 .progress {
   $w: 640px;
+  $content-pl: 44px;
+
   position: fixed;
   top: 0;
   bottom: 0;
@@ -66,6 +68,116 @@
 
     .hide-hero & {
       display: block;
+    }
+
+  }
+
+  &__header {
+    padding: 30px 100px 25px $content-pl;
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    font-size: 36px;
+    color: $dark-grey;
+
+    + .copy {
+      margin-top: 10px;
+    }
+
+  }
+
+  .copy {
+    font-size: 1.4rem;
+    color: $text-color;
+
+
+    a {
+      color: $purple;
+    }
+
+  }
+
+  &__header,
+  &__object-menu {
+    border-bottom: 1px solid rgba($warm-grey, .3);
+  }
+
+  &__object-menu__label {
+    color: $warm-grey;
+    font-size: 14px;
+    padding-left: $content-pl;
+    margin-bottom: 20px;
+  }
+
+  &__content {
+    margin-top: 25px;
+    padding-left: $content-pl;
+  }
+
+  &__content__lead {
+    max-width: 440px;
+    margin-bottom: 24px;
+  }
+
+}
+
+.object-menu {
+  margin-top: 10px;
+  white-space: nowrap;
+  text-align: center;
+
+  > li {
+    display: inline-block;
+  }
+
+  &__object {
+    position: relative;
+    display: inline-block;
+    padding: 0 18px 20px 18px;
+    text-align: center;
+    color: $dark-grey;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    font-family: $site-font;
+
+    .icon {
+      margin-bottom: 12px;
+      @include size(40px);
+    }
+
+    .text {
+      font-size: 13px;
+    }
+
+    &.active {
+
+      .text {
+        font-weight: 700;
+        color: $purple;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        height: 8px;
+        background: $purple;
+      }
+
+    }
+
+    &:hover,
+    &:focus {
+      outline: 0;
+
+      .text {
+        color: $purple;
+      }
+
     }
 
   }

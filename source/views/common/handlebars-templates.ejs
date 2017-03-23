@@ -7,3 +7,17 @@
         <source src="{{videoSource}}.webm" type="video/webm">
     </video>
 </script>
+
+<script id="note-item" type="text/x-handlebars-template">
+    <li class="note">
+        <span class="note__avatar blk abs" style="background-image: url({{avatarUrl}});"></span>
+        <div class="note__body">
+            <header class="note__header">
+                <strong>Observer notes</strong>&nbsp;&ndash;&nbsp;{{date}}&nbsp;{{time}}
+            </header>
+            <div class="note__content">
+                {{text}}
+            </div>
+        </div>
+    </li>
+</script>
