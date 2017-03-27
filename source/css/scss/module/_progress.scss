@@ -1,8 +1,15 @@
 .progress {
   $w: 640px;
   $content-pl: 44px;
+  $table-1st-col-w: 33%;
+  $table-2nd-col-w: 29%;
+  $table-3rd-col-w: 38%;
+  $table-header-h: 14px;
 
   position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
   top: 0;
   bottom: 0;
   right: 0;
@@ -11,6 +18,109 @@
   z-index: 1;
   @include prefixer(transform, translateX($w), webkit ms);
   @include prefixer(transition, all .3s ease-in-out, webkit);
+
+  &__top,
+  &__bottom {
+    position: relative;
+  }
+
+  &__top {
+    flex: 1;
+  }
+
+  &__bottom {
+    flex: 2;
+  }
+
+  .table-header {
+    height: $table-header-h;
+    margin-left: $content-pl;
+
+    .table-header__label {
+      font-size: 14px;
+      color: $warm-grey;
+
+      &:nth-child(1) {
+        width: $table-1st-col-w;
+      }
+
+      &:nth-child(2) {
+        width: $table-2nd-col-w;
+      }
+
+      &:nth-child(3) {
+        width: $table-3rd-col-w;
+      }
+
+    }
+
+  }
+
+  .table-container {
+    top: $table-header-h;
+    bottom: 20px;
+    left: $content-pl;
+    right: 0;
+    overflow: auto;
+
+    /* Let's get this party started */
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: $warm-grey;
+      border-radius: 8px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      border-radius: 8px;
+      background: $purple;
+    }
+
+  }
+
+  .table {
+    width: 100%;
+
+    .table__cell {
+      border-bottom: 1px solid $table-border-color;
+      box-sizing: border-box;
+      vertical-align: middle;
+      color: $text-color;
+      line-height: 1.2;
+
+      .icon {
+        margin-right: 5px;
+        @include size(22px);
+      }
+
+      &:nth-child(1) {
+        width: $table-1st-col-w;
+        padding-right: 30px;
+      }
+
+      &:nth-child(2) {
+        width: $table-2nd-col-w;
+      }
+
+      &:nth-child(1),
+      &:nth-child(2) {
+        padding: 16px 0;
+        text-align: left;
+      }
+
+      &:nth-child(3) {
+        width: $table-3rd-col-w;
+        text-align: center;
+        padding: 8px 0;
+      }
+
+    }
+
+  }
 
   .hide-hero & {
     z-index: $top;
@@ -188,3 +298,7 @@
   }
 
 }
+
+
+
+

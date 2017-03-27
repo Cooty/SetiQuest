@@ -86,3 +86,22 @@
   background-color: rgba($panel-grey, .8);
   @include prefixer(backdrop-filter, blur(3px), webkit);
 }
+
+@mixin custom-scrollbar() {
+  /* Let's get this party started */
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: rgba(#222122, .9);
+    border-radius: 8px;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: $panel-border-grey;
+  }
+}

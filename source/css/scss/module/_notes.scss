@@ -53,24 +53,7 @@
     margin: 10px 0 $mb 0;
     max-height: $plane-h;
     overflow: auto;
-
-    /* Let's get this party started */
-    &::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    /* Track */
-    &::-webkit-scrollbar-track {
-      background: rgba(#222122, .9);
-      border-radius: 8px;
-    }
-
-    /* Handle */
-    &::-webkit-scrollbar-thumb {
-      border-radius: 8px;
-      background: $panel-border-grey;
-    }
-
+    @include custom-scrollbar();
   }
 
 }

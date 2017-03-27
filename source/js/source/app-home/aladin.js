@@ -10,6 +10,7 @@ SETI.Aladin = (/** @lends SETI.Aladin */function() {
 	var aladinInstance,
         container,
         $zoomInBtn,
+        $html,
         $aladinAppContainer,
         aladinAppContainer,
         $zoomOutBtn,
@@ -19,6 +20,8 @@ SETI.Aladin = (/** @lends SETI.Aladin */function() {
         $body,
         $notes,
         notesCSSClass = 'notes--opened',
+        progressCSSClass = 'show-progress',
+        $progressLink,
         body,
         aladinConstellationsOn = true,
         isFullScreen = false,
@@ -172,6 +175,24 @@ SETI.Aladin = (/** @lends SETI.Aladin */function() {
             click: toggleConstellations
         });
 
+        // TODO: Add proper History here, just for demo
+        $progressLink.on({
+            click: function(e) {
+                e.preventDefault();
+                if(!$html.hasClass(progressCSSClass)) {
+                    $html.addClass(progressCSSClass);
+                    $('.header__menu').find('a.active').removeClass('active');
+                    $('.header__menu').find('a[data-progress]').addClass('active');
+                } else {
+                    $html.removeClass(progressCSSClass);
+                    $('.header__menu').find('a[data-progress]').removeClass('active');
+                    $('.header__menu').find('a[data-observation]').removeClass('active');
+                }
+
+
+            }
+        });
+
     }
 
 	/**
@@ -193,6 +214,9 @@ SETI.Aladin = (/** @lends SETI.Aladin */function() {
         $setCenterBtn = $aladinAppContainer.find('[data-set-center]');
         $fullScreenBtn = $aladinAppContainer.find('[data-fullscreen]');
         $notes = $('[data-notes]');
+        $html = SETI.Performance.getCachedDOM().$html;
+        $progressLink = $('[data-progress]');
+
 	}
 
 	function toggleFullscreen() {

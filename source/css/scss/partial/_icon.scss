@@ -37,4 +37,8 @@
     @include prefixer(transform, rotate(180deg), webkit ms);
   }
 
+  &--purple {
+    color: $purple;
+  }
+
 }
