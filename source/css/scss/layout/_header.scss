@@ -229,3 +229,17 @@
     }
 
 }
+
+.home:not(.hide-hero) {
+
+    .header {
+
+        &__hamburger,
+        &__donate,
+        &__menu {
+            display: none;
+        }
+
+    }
+
+}

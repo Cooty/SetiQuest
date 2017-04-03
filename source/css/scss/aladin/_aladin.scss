@@ -23,7 +23,7 @@
         padding: 16px 36px 0 36px;
         @include opaque-bg(top);
         @include prefixer(transition, all .25s ease-in, webkit);
-        @include prefixer(transform, translateY($bottom-nav-h), webkit ms);
+        @include prefixer(transform, translateY($bottom-nav-h + 30px), webkit ms); // 30px needed so that the closed comments don't stick out
 
         .notes {
             right: 0;

@@ -26,23 +26,14 @@
     } 
 
     &--cta {
-        padding: 20px 30px;
-        font-size: 1.6rem;
+        padding: 0 46px;
+        height: 36px;
+        font-size: 14px;
         border-radius: 4px;
         font-weight: 700;
-        text-transform: uppercase;
         letter-spacing: 1px;
         background: transparent !important;
         border: 2px solid $white;
-
-        .no-cssremunit & {
-            font-size: 16px;
-        }
-
-        @include big() {
-            padding: 24px 34px;    
-        } 
-
     }
 
 }
