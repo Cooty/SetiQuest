@@ -106,7 +106,7 @@
                  left: 8px;
                  right: 8px;
                  background-color: currentColor;
- 
+
                 &:nth-child(odd) {
                     @include prefixer(transition, all .3s ease-in-out, webkit);
                 }
@@ -114,15 +114,15 @@
                  &:nth-child(1) {
                      top: 8px;
                  }
- 
+
                  &:nth-child(2) {
                      top: 15px;
                  }
- 
+
                  &:nth-child(3) {
                      bottom: 9px; // needs to animate from bottom
                  }
- 
+
                 .mobile-nav-opened & {
 
                     &:nth-child(even) {
@@ -146,11 +146,11 @@
     }
 
     &__menu {
-        padding-top: $base-spacing; 
+        padding-top: $base-spacing;
         margin-left: $logo-w + $base-spacing * 4;
 
         @media only screen and (max-width: $menu-mid-bp) {
-            margin-left: $logo-w + $base-spacing * 3;    
+            margin-left: $logo-w + $base-spacing * 3;
         }
 
         @include smaller-than($lightweight) {
@@ -163,6 +163,7 @@
             padding: 10px;
             margin-right: $base-spacing;
             text-decoration: none;
+            @include prefixer(transition, all .3s all, webkit);
 
             &.active {
                 background-color: $purple;
@@ -183,27 +184,11 @@
 
             @media only screen and (min-width: $lightweight) {
 
-                &:after {
-                    content: '';
-                    position: absolute;
-                    height: 1px;
-                    left: 10px;
-                    right: 10px;
-                    bottom: 3px;
-                    background: rgba($white, .5);
-                    @include prefixer(transform, scale(0), webkit ms);
-                    @include prefixer(transition, all .3s ease-in-out, webkit);
-                }
-
                 &:not(.active) {
                     &:hover,
                     &:focus,
                     &:active {
-
-                        &:after {
-                            @include prefixer(transform, scale(1), webkit ms);
-                        }
-
+                      text-shadow: 0 0 5px $purple;
                     }
                 }
 

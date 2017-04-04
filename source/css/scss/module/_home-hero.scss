@@ -21,10 +21,10 @@
         font-size: 3em;
         font-weight: 500;
         letter-spacing: 16px;
-        @include prefixer(animation, showUp .6s $ease-out-quad, webkit);
+        @include prefixer(animation, showUp 1.5s $ease-out-quad, webkit);
 
         .cssanimations.hide-hero & {
-            @include prefixer(animation, hideUp .6s $ease-out-quad forwards, webkit);    
+            @include prefixer(animation, hideUp 1.5s $ease-out-quad forwards, webkit);
         }
 
     }
@@ -35,21 +35,21 @@
         .cssanimations & {
             opacity: 0;
         }
-        
+
     }
 
     &__lead {
         margin-bottom: 33px;
         font-size: 2em;
-        line-height: 1.6; 
+        line-height: 1.6;
         letter-spacing: 2px;
 
         .cssanimations & {
-            @include prefixer(animation, showUp .6s $ease-out-quad .2s forwards, webkit);
+            @include prefixer(animation, showUp 1.5s $ease-out-quad .2s forwards, webkit);
         }
 
         .cssanimations.hide-hero & {
-            @include prefixer(animation, hideUp .6s $ease-out-quad .2s forwards, webkit);    
+            @include prefixer(animation, hideUp 1.5s $ease-out-quad .2s forwards, webkit);
         }
 
     }
@@ -57,11 +57,11 @@
     .button--cta {
 
         .cssanimations & {
-            @include prefixer(animation, showUp .6s $ease-out-quad .4s forwards, webkit);
+            @include prefixer(animation, showUp 1.5s $ease-out-quad .4s forwards, webkit);
         }
 
         .cssanimations.hide-hero & {
-            @include prefixer(animation, hideUp .6s $ease-out-quad .4s forwards, webkit);    
+            @include prefixer(animation, hideUp 1.5s $ease-out-quad .4s forwards, webkit);
         }
 
     }
@@ -107,12 +107,12 @@
 
 @keyframes showUp {
     0% {
-        transform: translateY(80px) scale(.9);
+        //transform: translateY(80px) scale(.9);
         opacity: 0;
     }
 
     100% {
-        transform: translateY(0) scale(1);
+        //transform: translateY(0) scale(1);
         opacity: 1;
     }
 
