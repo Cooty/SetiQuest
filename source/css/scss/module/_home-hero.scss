@@ -45,11 +45,11 @@
         letter-spacing: 2px;
 
         .cssanimations & {
-            @include prefixer(animation, showUp 1.5s $ease-out-quad .2s forwards, webkit);
+            @include prefixer(animation, showUp 1.5s $ease-out-quad forwards, webkit);
         }
 
         .cssanimations.hide-hero & {
-            @include prefixer(animation, hideUp 1.5s $ease-out-quad .2s forwards, webkit);
+            @include prefixer(animation, hideUp 1.5s $ease-out-quad forwards, webkit);
         }
 
     }
@@ -57,11 +57,11 @@
     .button--cta {
 
         .cssanimations & {
-            @include prefixer(animation, showUp 1.5s $ease-out-quad .4s forwards, webkit);
+            @include prefixer(animation, showUp 1.5s $ease-out-quad forwards, webkit);
         }
 
         .cssanimations.hide-hero & {
-            @include prefixer(animation, hideUp 1.5s $ease-out-quad .4s forwards, webkit);
+            @include prefixer(animation, hideUp 1.5s $ease-out-quad forwards, webkit);
         }
 
     }
@@ -94,12 +94,10 @@
 
 @-webkit-keyframes showUp {
     0% {
-        transform: translateY(80px) scale(.9);
         opacity: 0;
     }
 
     100% {
-        transform: translateY(0) scale(1);
         opacity: 1;
     }
 
@@ -107,12 +105,10 @@
 
 @keyframes showUp {
     0% {
-        //transform: translateY(80px) scale(.9);
         opacity: 0;
     }
 
     100% {
-        //transform: translateY(0) scale(1);
         opacity: 1;
     }
 
@@ -120,12 +116,10 @@
 
 @-webkit-keyframes hideUp {
     0% {
-        transform: translateY(0) scale(1);
         opacity: 1;
     }
 
     100% {
-        transform: translateY(-80px) scale(.9);
         opacity: 0;
     }
 
@@ -133,12 +127,10 @@
 
 @keyframes hideUp {
     0% {
-        transform: translateY(0) scale(1);
         opacity: 1;
     }
 
     100% {
-        transform: translateY(-80px) scale(.9);
         opacity: 0;
     }
 

@@ -17,6 +17,7 @@ $indent: 16px;
 
     .status-live & {
       background: $red;
+      animation: pulse-live .7s ease infinite alternate;
     }
 
   }
@@ -25,4 +26,14 @@ $indent: 16px;
 
 .status-desc {
   padding-left: $indent;
+}
+
+@keyframes pulse-live {
+  0% {
+    box-shadow: 0 0 4px $red;
+  }
+
+  100% {
+    box-shadow: 0 0 14px $red;
+  }
 }

@@ -163,7 +163,7 @@
             padding: 10px;
             margin-right: $base-spacing;
             text-decoration: none;
-            @include prefixer(transition, all .3s all, webkit);
+            @include prefixer(transition, all .3s ease, webkit);
 
             &.active {
                 background-color: $purple;
@@ -188,7 +188,7 @@
                     &:hover,
                     &:focus,
                     &:active {
-                      text-shadow: 0 0 5px $purple;
+                      text-shadow: 0 0 10px $white;
                     }
                 }
 
