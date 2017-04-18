@@ -105,3 +105,35 @@
     background: $panel-border-grey;
   }
 }
+
+$animation-prefix-list: "webkit", "";
+
+// Keyframe mixin.
+// Since sass currenly won't let you add dynamically create @keframes prefixes we have to
+// run through a couple if statements.
+@mixin keyframes($animationName){
+  @each $pfx in $animation-prefix-list {
+    $prefix: if($pfx == "", "", #{"-"+$pfx+"-"});
+    @if $pfx == "webkit"{
+      @-webkit-keyframes #{$animationName}{
+        @content;
+      }
+    }@else if $pfx == "moz"{
+      @-moz-keyframes #{$animationName}{
+        @content;
+      }
+    }@else if $pfx == "ms"{
+      @-ms-keyframes #{$animationName}{
+        @content;
+      }
+    }@else if $pfx == "o"{
+      @-o-keyframes #{$animationName}{
+        @content;
+      }
+    }@else{
+      @keyframes #{$animationName}{
+        @content;
+      }
+    }
+  }
+}

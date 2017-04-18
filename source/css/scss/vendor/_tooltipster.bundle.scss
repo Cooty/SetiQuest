@@ -184,7 +184,7 @@
 
 /* fade */
 
-@keyframes tooltipster-fading {
+@include keyframes(tooltipster-fading) {
 	0% {
 		opacity: 0;
 	}
@@ -199,7 +199,7 @@
 
 /* rotate */
 
-@keyframes tooltipster-rotating {
+@include keyframes(tooltipster-rotating) {
 	25% {
 		transform: rotate(-2deg);
 	}
@@ -217,7 +217,7 @@
 
 /* scale */
 
-@keyframes tooltipster-scaling {
+@include keyframes(tooltipster-scaling) {
 	50% {
 		transform: scale(1.1);
 	}

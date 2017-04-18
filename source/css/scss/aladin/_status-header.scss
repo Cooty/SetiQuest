@@ -28,7 +28,7 @@ $indent: 16px;
   padding-left: $indent;
 }
 
-@keyframes pulse-live {
+@include keyframes(pulse-live) {
   0% {
     box-shadow: 0 0 4px $red;
   }

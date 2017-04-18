@@ -11,14 +11,20 @@
   @include size(397px, 195px);
   @include prefixer(transition, all .3s ease-in-out, webkit);
 
-  .show-progress & {
+  .aladin & {
+    @include prefixer(transition-delay, .25s, webkit);
     @include prefixer(transform, translateY(200px), webkit ms);
+  }
+
+  .aladin--show & {
+    @include prefixer(transform, translateY(0), webkit ms);
   }
 
   @media only screen and (max-width: 397px) {
     left: 0;
     margin-left: 0;
   }
+
 
   &__label {
     left: 0;

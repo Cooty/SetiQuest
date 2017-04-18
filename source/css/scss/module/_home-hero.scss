@@ -21,10 +21,10 @@
         font-size: 3em;
         font-weight: 500;
         letter-spacing: 16px;
-        @include prefixer(animation, showUp 1.5s $ease-out-quad, webkit);
+        @include prefixer(animation, fadeIn 1.5s $ease-out-quad, webkit);
 
         .cssanimations.hide-hero & {
-            @include prefixer(animation, hideUp 1.5s $ease-out-quad forwards, webkit);
+            @include prefixer(animation, fadeOut 1.5s $ease-out-quad forwards, webkit);
         }
 
     }
@@ -45,11 +45,11 @@
         letter-spacing: 2px;
 
         .cssanimations & {
-            @include prefixer(animation, showUp 1.5s $ease-out-quad forwards, webkit);
+            @include prefixer(animation, fadeIn 1.5s $ease-out-quad forwards, webkit);
         }
 
         .cssanimations.hide-hero & {
-            @include prefixer(animation, hideUp 1.5s $ease-out-quad forwards, webkit);
+            @include prefixer(animation, fadeOut 1.5s $ease-out-quad forwards, webkit);
         }
 
     }
@@ -57,11 +57,11 @@
     .button--cta {
 
         .cssanimations & {
-            @include prefixer(animation, showUp 1.5s $ease-out-quad forwards, webkit);
+            @include prefixer(animation, fadeIn 1.5s $ease-out-quad forwards, webkit);
         }
 
         .cssanimations.hide-hero & {
-            @include prefixer(animation, hideUp 1.5s $ease-out-quad forwards, webkit);
+            @include prefixer(animation, fadeOut 1.5s $ease-out-quad forwards, webkit);
         }
 
     }
@@ -92,7 +92,7 @@
     }
 }
 
-@-webkit-keyframes showUp {
+@include keyframes(fadeIn) {
     0% {
         opacity: 0;
     }
@@ -103,29 +103,7 @@
 
 }
 
-@keyframes showUp {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-
-}
-
-@-webkit-keyframes hideUp {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-
-}
-
-@keyframes hideUp {
+@include keyframes(fadeOut) {
     0% {
         opacity: 1;
     }

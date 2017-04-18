@@ -26,32 +26,48 @@ SETI.Hero = (/** @lends SETI.Hero */function() {
 			$btn.on({
 				click: function() {
 					if(Modernizr.cssanimations) {
-						$html.addClass('hide-hero');
-
 						$btn.on({
 							animationend: function() {
 								console.log('anim ended');
 								$hero.fadeOut(180, function() {
-                                    // animate in the controls
-                                    $aladin.addClass('aladin--show');
+                                    hideHeroCallback();
 								});
 							}
 						});
 
 					} else {
 						$hero.fadeOut(180, function() {
-                            // animate in the controls
-                            $aladin.addClass('aladin--show');
+                            hideHeroCallback();
 						});
 					}
 					
-					window.setCookie('clickedHero', 1);
-					if(bgVideo) {
-						bgVideo.pause();
-					}
+					setAladinState();
+
 				}
 			});
 
+        }
+	}
+
+    /**
+	 * Do this after the end of the animation
+     */
+	function hideHeroCallback() {
+        $aladin.addClass('aladin--show');
+        $hero.remove();
+	}
+
+    /**
+	 * Do this imidiately when the user clicks the button on the landing page
+     */
+	function setAladinState() {
+        $html.addClass('hide-hero');
+        if('sessionStorage' in window) {
+        	window.sessionStorage.setItem('clickedHero', 1);
+		}
+        if(bgVideo) {
+            bgVideo.pause();
+            $(bgVideo).remove();
         }
 	}
 

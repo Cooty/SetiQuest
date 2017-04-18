@@ -38,28 +38,15 @@
 
 }
 
-@keyframes ripple {
+@include keyframes(ripple) {
   0% {
-    transform: scale(0);
+    @include prefixer(transform, scale(0), webkit ms);
   }
   20% {
-    transform: scale(1);
+    @include prefixer(transform, scale(1), webkit ms);
   }
   100% {
     opacity: 0;
-    transform: scale(1);
-  }
-}
-
-@-webkit-keyframes ripple {
-  0% {
-    transform: scale(0);
-  }
-  20% {
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1);
+    @include prefixer(transform, scale(1), webkit ms);
   }
 }

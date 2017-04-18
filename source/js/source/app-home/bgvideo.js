@@ -24,9 +24,11 @@ SETI.BackgroundVideo = (/** @lends SETI.BackgroundVideo */function() {
      * @returns {void}
      */
     function init() {
-        hasSeenHero = window.getCookie('clickedHero');
+        hasSeenHero = ('sessionStorage' in window ? window.sessionStorage.getItem('clickedHero') : false);
 
-        if(!SETI.mobile && hasSeenHero !== '1') {
+        console.log(hasSeenHero);
+
+        if(!SETI.mobile && !hasSeenHero) {
             initDOMElements();
             addVideo();
         }
