@@ -9,9 +9,9 @@
 
     z-index: $low;
     opacity: 0;
-    transition: opacity 1.5s ease;
+    transition: opacity 1s ease;
 
-    .hide-hero & {
+    .aladin-active & {
         opacity: 1;
     }
 
@@ -22,7 +22,7 @@
         bottom: 0;
         padding: 16px 36px 0 36px;
         @include opaque-bg(top);
-        @include prefixer(transition, all .25s ease-in, webkit);
+        @include prefixer(transition, all .25s ease-in 1s, webkit);
         @include prefixer(transform, translateY($bottom-nav-h + 30px), webkit ms); // 30px needed so that the closed comments don't stick out
 
         .notes {
@@ -35,7 +35,7 @@
     &__controls {
         top: $header-h;
         bottom: $bottom-nav-h;
-        @include prefixer(transition, all .25s ease-in .15s, webkit);
+        @include prefixer(transition, all .5s ease-in 1.25s, webkit);
         @include prefixer(transform, translateX($bottom-nav-h * -1), webkit ms);
 
         .vp-middle__content {
@@ -44,7 +44,7 @@
 
     }
 
-    &--show {
+    .aladin-active & {
 
         .aladin__bottom-nav {
             @include prefixer(transform, translateY(0), webkit ms);

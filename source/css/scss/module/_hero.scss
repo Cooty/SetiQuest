@@ -3,10 +3,6 @@
 
     min-height: $h;
     box-sizing: border-box;
-    /*background-color: $black;
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-size: cover;*/
     color: $white;
 
     // fallback for older browsers
@@ -18,33 +14,9 @@
         min-height: 0 !important;
     }
 
-    /*.no-mediaqueries & {
-        background-image: url('../i/hero-1366x768.jpg');
-    }
-
-    @include at-least ($heavyweight + 1) {
-        background-image: url('../i/hero-1920x1080.jpg');
-    }
-
-    @media only screen and (min-width: $middleweight + 1) and (max-width: $heavyweight) {
-        background-image: url('../i/hero-1366x768.jpg');
-    }
-
-    @media only screen and (max-width: $middleweight) {
-        background-image: url('../i/hero-960x540.jpg');
-    }
-
-    @media only screen and (max-width: $middleweight) and (orientation: portrait) {
-        background-image: url('../i/hero-960x1280.jpg');
-    }
-
-    @media only screen and (max-width: 420px) and (orientation: portrait) {
-        background-image: url('../i/hero-412x549.jpg');
-    }*/
-
     // adjust because of fixed footer navigation
     @include smaller-than($lightweight) {
-        min-height: calc($h - #{$mobile-nav-h});
+        min-height: calc(#{$h} - #{$mobile-nav-h});
     }
 
     @media only screen and (orientation: portrait) and (max-height: 800px) {

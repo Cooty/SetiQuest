@@ -18,7 +18,6 @@ SETI.Home = (/** @lends SETI.Home */function () {
 	 * @returns {void}
 	 */
 	function init() {
-        SETI.BackgroundVideo.init();
         SETI.Hero.init();
         SETI.Aladin.init();
 	}

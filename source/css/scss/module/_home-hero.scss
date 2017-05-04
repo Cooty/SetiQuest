@@ -2,16 +2,32 @@
     z-index: $middle;
     background: #000 url('../i/seti-bg-video-cover-1280x720.jpg') no-repeat center top;
     background-size: cover;
+    @include prefixer(animation, fadeIn 1.5s $ease-out-quad forwards, webkit);
 
-    &--video-playing {
-        background: transparent;
+    .cssanimations & {
+        opacity: 0;
+    }
+
+    &.fade-out {
+        @include prefixer(animation, fadeOut .6s $ease-out-quad forwards, webkit);
     }
 
     &__content {
+        position: relative;
+        z-index: map-get($z-indexes, 'low');
         max-width: $hero-mw;
+        @include prefixer(animation, fadeIn 1.5s $ease-out-quad .6s forwards, webkit);
 
         @media only screen and (max-width: $hero-mw + $base-spacing * 2) {
             padding: 0 $base-spacing;
+        }
+
+        .cssanimations & {
+            opacity: 0;
+        }
+
+        &.fade-out {
+            @include prefixer(animation, fadeOut .6s $ease-out-quad forwards, webkit);
         }
 
     }
@@ -21,21 +37,6 @@
         font-size: 3em;
         font-weight: 500;
         letter-spacing: 16px;
-        @include prefixer(animation, fadeIn 1.5s $ease-out-quad, webkit);
-
-        .cssanimations.hide-hero & {
-            @include prefixer(animation, fadeOut 1.5s $ease-out-quad forwards, webkit);
-        }
-
-    }
-
-    &__lead,
-    .button--cta {
-
-        .cssanimations & {
-            opacity: 0;
-        }
-
     }
 
     &__lead {
@@ -43,27 +44,6 @@
         font-size: 2em;
         line-height: 1.6;
         letter-spacing: 2px;
-
-        .cssanimations & {
-            @include prefixer(animation, fadeIn 1.5s $ease-out-quad forwards, webkit);
-        }
-
-        .cssanimations.hide-hero & {
-            @include prefixer(animation, fadeOut 1.5s $ease-out-quad forwards, webkit);
-        }
-
-    }
-
-    .button--cta {
-
-        .cssanimations & {
-            @include prefixer(animation, fadeIn 1.5s $ease-out-quad forwards, webkit);
-        }
-
-        .cssanimations.hide-hero & {
-            @include prefixer(animation, fadeOut 1.5s $ease-out-quad forwards, webkit);
-        }
-
     }
 
     @media only screen and (max-height: $shorty - 1) and (max-width: $light-heavyweight - 1) {

@@ -12,11 +12,11 @@
   @include prefixer(transition, all .3s ease-in-out, webkit);
 
   .aladin & {
-    @include prefixer(transition-delay, .25s, webkit);
+    @include prefixer(transition-delay, 1.5s, webkit);
     @include prefixer(transform, translateY(200px), webkit ms);
   }
 
-  .aladin--show & {
+  .aladin-active & {
     @include prefixer(transform, translateY(0), webkit ms);
   }
 

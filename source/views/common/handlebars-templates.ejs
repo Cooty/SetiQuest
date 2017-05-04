@@ -1,9 +1,8 @@
 <!-- Client side templating with Handlebars -->
 <!-- Only needed on the homepage -->
-
-<script id="intro-page" type="text/x-handlebars-template">
+<script id="home-hero-template" type="text/x-handlebars-template">
     <div class="home-hero abs abs--full vp-middle header-offset" id="js-home-hero">
-        <article class="home-hero__content vp-middle__content uppercase">
+        <article class="home-hero__content vp-middle__content uppercase" id="js-home-hero-content">
             <h1 class="home-hero__title">In every 90 seconds</h1>
 
             <p class="home-hero__lead hide-till-anim">
@@ -17,7 +16,7 @@
             </button>
         </article>
 
-        {{#if isVideo}}
+        {{#if hasVideo}}
         <video class="bg-video" autoplay loop preload="auto" muted data-bg-video>
             <source src="{{videoSource}}.mp4" type="video/mp4">
             <source src="{{videoSource}}.ogv" type="video/ogg">

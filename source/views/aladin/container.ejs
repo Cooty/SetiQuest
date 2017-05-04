@@ -1,7 +1,7 @@
 <!-- TODO: Add aladin--show class from server-side if 'clickedHero' cookie's value is '1' -->
 <!-- TODO: Add 'status-live' when observation is in LIVE mode -->
 <!-- TODO: Add the URL of the webservice that recieves the data to 'data-service-url' -->
-<div class="aladin abs abs--full status-live <%= clickedHero === '1' ? 'aladin--show' : '' %>" id="js-aladin" data-service-url="data/sample-observation.json">
+<div class="aladin abs abs--full status-live" id="js-aladin" data-service-url="data/sample-observation.json">
     <div class="aladin__canvas abs abs--full" id="js-aladin-container"></div>
 
     <%- include('dish') -%>

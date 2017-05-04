@@ -11,8 +11,11 @@ SETI.Hero = (/** @lends SETI.Hero */function() {
 	var $hero,
 		$btn,
 		$html,
+		$body,
 		bgVideo,
-		$aladin;
+		$aladin,
+        $content,
+		heroTemplate;
 
 	/**
 	 * Initialize the module
@@ -22,46 +25,59 @@ SETI.Hero = (/** @lends SETI.Hero */function() {
 	 */
 	function init() {
 		initDOMElements();
-        if($hero.length) {
-			$btn.on({
-				click: function() {
-					if(Modernizr.cssanimations) {
-						$btn.on({
-							animationend: function() {
-								console.log('anim ended');
-								$hero.fadeOut(180, function() {
-                                    hideHeroCallback();
-								});
-							}
-						});
 
-					} else {
-						$hero.fadeOut(180, function() {
-                            hideHeroCallback();
-						});
-					}
-					
-					setAladinState();
+		if(window.sessionStorage) {
+			if(sessionStorage.getItem('clickedHero')) {
+                $html.addClass('aladin-active');
+			} else {
+                addHomePageHero();
+                addEventListeners();
+			}
+		} else {
+			$html.addClass('aladin-active');
+		}
 
-				}
-			});
 
-        }
 	}
 
-    /**
-	 * Do this after the end of the animation
-     */
-	function hideHeroCallback() {
-        $aladin.addClass('aladin--show');
-        $hero.remove();
+	function addEventListeners() {
+        if($hero.length) {
+            $btn.on({
+                click: function() {
+                    if(Modernizr.cssanimations) {
+                        console.log('we have css anims');
+                        $content.on({
+                            animationend: function() {
+                                console.log('content part anim ended');
+                                $hero.addClass('fade-out');
+                            }
+                        });
+
+                        $hero.on({
+                            animationend: function() {
+                                console.log('hero animation ended');
+                                setAladinState();
+                            }
+                        });
+
+                        $content.addClass('fade-out');
+
+                    } else {
+                        $hero.hide(100, function() {
+                            setAladinState();
+                        });
+                    }
+                }
+            });
+
+        }
 	}
 
     /**
 	 * Do this imidiately when the user clicks the button on the landing page
      */
 	function setAladinState() {
-        $html.addClass('hide-hero');
+        $html.addClass('aladin-active');
         if('sessionStorage' in window) {
         	window.sessionStorage.setItem('clickedHero', 1);
 		}
@@ -69,6 +85,10 @@ SETI.Hero = (/** @lends SETI.Hero */function() {
             bgVideo.pause();
             $(bgVideo).remove();
         }
+
+        window.setTimeout(function() {
+			$hero.remove();
+		}, 600);
 	}
 
 	/**
@@ -78,13 +98,25 @@ SETI.Hero = (/** @lends SETI.Hero */function() {
 	 * @returns {void}
 	 */
 	function initDOMElements() {
+		heroTemplate = Handlebars.compile(document.getElementById('home-hero-template').innerHTML);
+		$aladin = $('#js-aladin');
+        $body = SETI.Performance.getCachedDOM().$body;
+        $html = SETI.Performance.getCachedDOM().$html;
+	}
+
+	function addHomePageHero() {
+		var hasVideo = !SETI.mobile && Modernizr.video && Modernizr.videoloop;
+
+		$aladin.after(heroTemplate({
+			hasVideo: hasVideo,
+			videoSource: $body.data('video-source')
+		}));
+
         $hero = $('#js-home-hero');
-		if($hero.length) {
-			$btn = $('#js-hide-home-hero');
-			$html = SETI.Performance.getCachedDOM().$html;
-            bgVideo = SETI.BackgroundVideo.getBgVideo();
-            $aladin = $('#js-aladin');
-		}
+        $content = $hero.find('#js-home-hero-content');
+        $btn = $('#js-hide-home-hero');
+        bgVideo = $('[data-bg-video]')[0];
+
 	}
 
 	return {

@@ -38,7 +38,8 @@ SETI.Aladin = (/** @lends SETI.Aladin */function() {
 	 * @returns {void}
 	 */
 	function init() {
-	    if(!SETI.mobile) {
+	    console.log(SETI.mobile);
+	    if(SETI.mobile === 0) {
             initDOMElements();
             if(container) {
                 render();

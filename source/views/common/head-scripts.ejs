@@ -1,42 +1,15 @@
 <script>
     var SETI = SETI || function() {};
-
-    window.setCookie = function(cname, cvalue, exdays) {
-        var d = new Date(),
-                expires;
-
-        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-        expires = exdays ? 'expires=' + d.toUTCString() : '';
-        document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
-    };
-
-    window.getCookie = function(cname) {
-        var name = cname + '=',
-            ca = document.cookie.split(';'),
-            i,
-            c;
-
-        for(i = 0; i <ca.length; i++) {
-            c = ca[i];
-            
-            while (c.charAt(0) === ' ') {
-                c = c.substring(1);
-            }
-
-            if (c.indexOf(name) === 0) {
-                return c.substring(name.length, c.length);
-            }
-        }
-
-        return '';
-    };
-
 </script>
 
 <script>
     (function() {
         var ua,
-            savedValue = parseInt(window.getCookie('mob'), 10);
+            savedValue;
+
+        if(window.localStorage && window.localStorage.getItem('mob')) {
+            savedValue = window.localStorage.getItem('mob');
+        }
 
         if(!savedValue) {
             ua = navigator.userAgent || navigator.vendor || window.opera;
@@ -46,9 +19,11 @@
             } else {
                 SETI.mobile = 0;
             }
-            window.setCookie('mob', SETI.mobile, 365);
+            if(window.localStorage) {
+                window.localStorage.setItem('mob', SETI.mobile);
+            }
         } else {
-            SETI.mobile = savedValue;
+            SETI.mobile = parseInt(savedValue, 10);
         }
 
     }) ();
